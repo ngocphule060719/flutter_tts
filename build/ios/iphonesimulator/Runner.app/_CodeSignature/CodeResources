@@ -82,7 +82,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		GW0uZvI2lXon/Ip/J+CWP5LIP5g=
+		bm1y0biH6mQPqxBpS5kv+GpPYa4=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
@@ -110,7 +110,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		3qS5peTy1lHEte03uiZqW8MD0fY=
+		Yd27mKhxN1MW1RvlHDVSTbeAyMw=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,11 +118,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		I6P4oFmXTFEW9hvoQcUKicdUYQU=
+		r2/qaeoo+ExDK7NgxT4jWH+xoPQ=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		WeI0EWr5H5o17Erk/Fmz981lP3I=
+		DSZlHfLnwhFJ9nS4/WekUhHr2DU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -144,6 +144,22 @@
 		<data>
 		677qN0wolkfUmV1k4a8KAxthzO0=
 		</data>
+		<key>Frameworks/App.framework/flutter_assets/images/apple_icon.png</key>
+		<data>
+		/TpEBMbsY1w/4a/SG+PJTwGnr6Y=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/images/fb_icon.png</key>
+		<data>
+		lrnkDGDxoz9MgbEL6yBc2hYPzJA=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/images/gg_icon.png</key>
+		<data>
+		md5JbOl6413Ovzotm664t+5EC84=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/images/mail_icon.png</key>
+		<data>
+		kicEs6FmPHL1tXOT4ok3O9sEEi0=
+		</data>
 		<key>Frameworks/App.framework/flutter_assets/images/ookini_logo_1.png</key>
 		<data>
 		hA56IHuhlPsAzPxKKCVbX++D+X4=
@@ -154,7 +170,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		3dERQoJCf2BswPS0zE/FNupNfNQ=
+		tl/+LQT4O29H6CI/5QFiw1Fz0Y4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -396,7 +412,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			zqdod/Feotbc/OKq1J/EI6RkVql7BAIpTdSKopyuc6I=
+			s9i8lYm6kEwQzM2/HqjeJ67mkEjM2VO18fmR4zqrIs8=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
@@ -445,7 +461,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BhFM9e+jI/IsY7MB10xCBpgNLGytAKpeixTXa3Czxe0=
+			rQFFq69RtBg1lxjo+amWzs8qZYR5RR0jK73kPTIlqWI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -459,14 +475,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			GlyCj1UC7yKxpVexh5WEIyTgjyN6RytiSkVcVEA4pbY=
+			cLCcSAhyt4vdrdHfF0+AeX4YHi0n8v31ego+A6uCufg=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mvUWUhprPGIYZi9fcVd173TSpTTknapcB1+ev+I/pFQ=
+			WSI4wHjq3SNFloB7897yBoPTuKpF3Kn0co667nxuXY4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -504,6 +520,34 @@
 			2L/yQJTm2VZA/MCt2m++GNKvILdOiKshRxmUwkOVzTU=
 			</data>
 		</dict>
+		<key>Frameworks/App.framework/flutter_assets/images/apple_icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GBE/MVHSl2EmUCRmuA/GO/q89G70cRug39rEi+AJGGM=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/images/fb_icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GiSdNukOuT+3/hpdCn9K7NHaGYEsf87GMLUKLfPMPUo=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/images/gg_icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QFcNX8FTR1YK6l/X6uZxKfnxuFskWWjQ6LvrRXphV18=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/images/mail_icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RiyQ5WMbo2TIrah05DULHKiiZ7rtFPjtOz1p5fa29hU=
+			</data>
+		</dict>
 		<key>Frameworks/App.framework/flutter_assets/images/ookini_logo_1.png</key>
 		<dict>
 			<key>hash2</key>
@@ -522,7 +566,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bmggcBlvfVc+Ej0qiOhPmCcFFXLvPfIyH3b8G3UIXqQ=
+			VFnWO1sTbhSRs4H0a01WoCSk38O+IR31AQ6YZRcuX30=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

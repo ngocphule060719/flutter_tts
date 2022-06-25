@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widget/buttonWithText.dart';
+import '../widget/button_text.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({Key? key}) : super(key: key);
@@ -41,11 +41,12 @@ class StartScreen extends StatelessWidget {
               height: sheight * 11 / 812,
             ),
             Container(
-              padding: EdgeInsets.only(left: 16),
+              padding: EdgeInsets.only(
+                  left: swidth * 16 / 375, right: swidth * 16 / 375),
               width: swidth,
               height: 46,
               child: ButtonWithText(
-                bWidth: swidth - 32,
+                bWidth: swidth * 342 / 375,
                 bHeight: 46,
                 fTap: () {},
                 bText: '新しく始める（無料）', //Start anew (free)
@@ -64,7 +65,7 @@ class StartScreen extends StatelessWidget {
               height: 46,
               padding: EdgeInsets.only(left: 16),
               child: ButtonWithText(
-                bWidth: swidth - 32,
+                bWidth: swidth * 342 / 375,
                 bHeight: 46,
                 fTap: () {},
                 bText:
