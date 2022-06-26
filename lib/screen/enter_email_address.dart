@@ -3,9 +3,15 @@ import 'package:flutter_tts/widget/button_back.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 import 'package:flutter_tts/widget/button_text.dart';
 
-class EnterEmailAddress extends StatelessWidget {
-  const EnterEmailAddress({Key? key}) : super(key: key);
+class EnterEmailAddressScreen extends StatefulWidget {
+  const EnterEmailAddressScreen({Key? key}) : super(key: key);
 
+  @override
+  State<EnterEmailAddressScreen> createState() =>
+      _EnterEmailAddressScreenState();
+}
+
+class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
   @override
   Widget build(BuildContext context) {
     final double swidth = MediaQuery.of(context).size.width;
@@ -39,7 +45,7 @@ class EnterEmailAddress extends StatelessWidget {
             ),
             Container(
               width: swidth,
-              height: sheight * 22 / 812,
+              //height: sheight * 22 / 812,
               padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: const Text(
                 'メールアドレスを入力してください', //Please enter your e-mail address
@@ -55,7 +61,7 @@ class EnterEmailAddress extends StatelessWidget {
             ),
             Container(
               width: swidth,
-              height: sheight * 18 / 812,
+              //height: sheight * 18 / 812,
               padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: const Text(
                 '登録したメールアドレスに確認コードをお送りします。', //A confirmation code will be sent to the registered email address.
