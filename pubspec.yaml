@@ -66,6 +66,7 @@ flutter:
     - images/fb_icon.png
     - images/gg_icon.png
     - images/mail_icon.png
+    - images/back_icon.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

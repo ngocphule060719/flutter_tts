@@ -62,8 +62,8 @@ class StartScreen extends StatelessWidget {
             ),
             Container(
               width: swidth,
-              height: 46,
-              padding: EdgeInsets.only(left: 16),
+              height: sheight * 46 / 812,
+              padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: ButtonWithText(
                 bWidth: swidth * 342 / 375,
                 bHeight: 46,
