@@ -121,9 +121,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: ButtonWithText(
                 bHeight: sheight * 46 / 812,
                 bWidth: swidth * 343 / 375,
-                bText: '次', //Next
+                bText: '次へ', //to the next
                 fTap: () {
-                  print('Next');
+                  print('to the next');
                 },
                 bColor: Color.fromRGBO(29, 32, 136, 1),
                 tColor: Colors.white,
