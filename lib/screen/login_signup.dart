@@ -19,7 +19,7 @@ class LoginSignUpScreen extends StatelessWidget {
           children: <Widget>[
             SizedBox(
               width: swidth,
-              height: sheight * 378 / 812,
+              height: sheight * 2 / 5,
             ),
             Image.asset(
               'images/ookini_logo_1.png',
@@ -119,7 +119,7 @@ class LoginSignUpScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 24 / 812,
             ),
-            BottomText(swidth * 249 / 375, 14, () {
+            BottomText(swidth * 249 / 375, sheight * 20 / 812, () {
               print('ログイン'); //sign in
             })
           ],
