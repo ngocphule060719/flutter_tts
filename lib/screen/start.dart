@@ -16,7 +16,7 @@ class StartScreen extends StatelessWidget {
         width: swidth,
         height: sheight,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               width: swidth,
@@ -40,10 +40,8 @@ class StartScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 11 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithText(
                 bWidth: swidth * 342 / 375,
@@ -60,10 +58,9 @@ class StartScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 19 / 812,
             ),
-            Container(
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: sheight * 46 / 812,
-              padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: ButtonWithText(
                 bWidth: swidth * 342 / 375,
                 bHeight: 46,

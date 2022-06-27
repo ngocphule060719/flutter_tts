@@ -30,10 +30,8 @@ class LoginSignUpScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 77 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -53,10 +51,8 @@ class LoginSignUpScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 16 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -75,10 +71,8 @@ class LoginSignUpScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 16 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -97,10 +91,8 @@ class LoginSignUpScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 16 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -116,7 +108,7 @@ class LoginSignUpScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: swidth,
+              width: swidth * 249 / 375,
               height: sheight * 24 / 812,
             ),
             BottomText(swidth * 249 / 375, sheight * 20 / 812, () {

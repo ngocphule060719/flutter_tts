@@ -80,11 +80,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       value: isChecked,
                       onChanged: (bool? newCheck) {
                         Color? newColor;
-                        if (newCheck == true) {
-                          newColor = Color.fromRGBO(29, 32, 136, 1);
-                        } else {
-                          newColor = Colors.grey;
-                        }
+                        newCheck == true
+                            ? newColor = Color.fromRGBO(29, 32, 136, 1)
+                            : Colors.grey;
                         setState(() {
                           isChecked = newCheck!;
                           bColor = newColor!;
@@ -125,9 +123,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 bHeight: sheight * 46 / 812,
                 bText: '次へ', //to the next
                 fTap: () {
-                  if (isChecked == true) {
-                    print('to the next');
-                  }
+                  isChecked == true ? print('next') : print('need to check');
                 },
                 bColor: bColor,
                 tColor: Colors.white,

@@ -16,7 +16,7 @@ class LoginLoginScreen extends StatelessWidget {
         width: swidth,
         height: sheight,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             SizedBox(
               width: swidth,
@@ -31,10 +31,8 @@ class LoginLoginScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 77 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -54,10 +52,8 @@ class LoginLoginScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 16 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -76,10 +72,8 @@ class LoginLoginScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 16 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -98,10 +92,8 @@ class LoginLoginScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 16 / 812,
             ),
-            Container(
-              padding: EdgeInsets.only(
-                  left: swidth * 16 / 375, right: swidth * 16 / 375),
-              width: swidth,
+            SizedBox(
+              width: swidth * 342 / 375,
               height: 46,
               child: ButtonWithTextAndIcon(
                 bHeight: 46,
@@ -117,7 +109,7 @@ class LoginLoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: swidth,
+              width: swidth * 249 / 375,
               height: sheight * 24 / 812,
             ),
             BottomText(swidth * 249 / 375, sheight * 20 / 812, () {
@@ -135,11 +127,11 @@ class LoginLoginScreen extends StatelessWidget {
       width: tWidth,
       height: tHeight,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
             child: Text(
-              'アカウントをお持ちでない場合登録は ', //アカウントをお持ちでない場合登録は
+              'アカウントをお持ちでない場合登録は ', //If you do not have an account, you can register
               style: TextStyle(fontSize: 13, color: Colors.black),
             ),
           ),

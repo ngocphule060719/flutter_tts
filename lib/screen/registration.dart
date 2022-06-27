@@ -21,7 +21,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SizedBox(
+      body: SingleChildScrollView(
+          child: SizedBox(
         width: swidth,
         height: sheight,
         child: Column(
@@ -75,6 +76,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 hintColor: Colors.grey,
                 tColor: Colors.black,
                 tSize: 17,
+                passwordTextField: true,
               ),
             ),
             SizedBox(
@@ -92,6 +94,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 hintColor: Colors.grey,
                 tColor: Colors.black,
                 tSize: 17,
+                passwordTextField: true,
               ),
             ),
             SizedBox(
@@ -133,7 +136,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             )
           ],
         ),
-      ),
+      )),
     );
   }
 }
