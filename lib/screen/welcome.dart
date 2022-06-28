@@ -82,7 +82,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         Color? newColor;
                         newCheck == true
                             ? newColor = Color.fromRGBO(29, 32, 136, 1)
-                            : Colors.grey;
+                            : newColor = Colors.grey;
                         setState(() {
                           isChecked = newCheck!;
                           bColor = newColor!;
@@ -113,11 +113,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               width: swidth,
             ),
             Container(
-              color: Colors.white,
               width: swidth,
               height: sheight * 46 / 812,
               alignment: Alignment.center,
-              padding: EdgeInsets.only(left: swidth * 98 / 375),
               child: ButtonWithText(
                 bWidth: swidth * 179 / 375,
                 bHeight: sheight * 46 / 812,
