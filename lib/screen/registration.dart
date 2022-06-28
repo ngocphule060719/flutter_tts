@@ -137,7 +137,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: sheight * 54 / 812,
             ),
             Container(
-              width: swidth,
+              width: swidth * 343 / 375,
               height: sheight * 46 / 812,
               padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: ButtonWithText(
@@ -151,10 +151,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       textColor = Colors.white;
                     });
                     print('to the next');
+                    String _userName = widget.emailAddress.split('@')[0];
+                    print('user name: ' + _userName);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => WelcomeScreen()));
+                            builder: (context) => WelcomeScreen(
+                                  userName: _userName,
+                                )));
                   } else {
                     print('is not matched!');
                     setState(() {

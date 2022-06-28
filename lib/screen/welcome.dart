@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import '../widget/button_text.dart';
 
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  late String userName;
+
+  WelcomeScreen({required this.userName});
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
@@ -53,7 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               //height: sheight * 18 / 812,
               padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: Text(
-                'xxx',
+                '${widget.userName} ',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 13,
@@ -91,20 +93,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                   Container(
-                    width: swidth * 302 / 375,
-                    padding: EdgeInsets.only(left: swidth * 8 / 375),
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Ookini! の利用規約、プライバシーポリシー、ガイドラインにも同意します。',
-                          //I also agree to Ookini!'S Terms of Service, Privacy Policy and Guidelines.
-                          style: TextStyle(fontSize: 13, color: Colors.black),
-                        ),
-                      ],
-                    ),
-                  ),
+                      width: swidth * 302 / 375,
+                      height: sheight * 41 / 812,
+                      padding: EdgeInsets.only(left: swidth * 8 / 375),
+                      alignment: Alignment.centerLeft,
+                      child: TextSpanCustom()),
                 ],
               ),
             ),
@@ -133,6 +126,52 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget TextSpanCustom() {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Text.rich(
+        TextSpan(
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.normal),
+            children: [
+              TextSpan(
+                text: 'Ookini! の',
+                style: TextStyle(color: Colors.black),
+              ),
+              TextSpan(
+                  text: '利用規約',
+                  style: TextStyle(
+                      color: Color.fromRGBO(29, 32, 136, 1),
+                      decoration: TextDecoration.underline),
+                  recognizer: TapGestureRecognizer()..onTap = () async {}),
+              TextSpan(
+                text: '、',
+                style: TextStyle(color: Colors.black),
+              ),
+              TextSpan(
+                  text: 'プライバシーポリシー',
+                  style: TextStyle(
+                      color: Color.fromRGBO(29, 32, 136, 1),
+                      decoration: TextDecoration.underline),
+                  recognizer: TapGestureRecognizer()..onTap = () async {}),
+              TextSpan(
+                text: '、',
+                style: TextStyle(color: Colors.black),
+              ),
+              TextSpan(
+                  text: 'ガイドライン',
+                  style: TextStyle(
+                      color: Color.fromRGBO(29, 32, 136, 1),
+                      decoration: TextDecoration.underline),
+                  recognizer: TapGestureRecognizer()..onTap = () async {}),
+              TextSpan(
+                text: 'にも同意します。',
+                style: TextStyle(color: Colors.black),
+              ),
+            ]),
       ),
     );
   }
