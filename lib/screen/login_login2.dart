@@ -3,6 +3,7 @@ import 'package:flutter_tts/screen/login_password.dart';
 import 'package:flutter_tts/screen/login_signup.dart';
 import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/text_field.dart';
+import 'package:email_validator/email_validator.dart';
 
 class LoginLogin2Screen extends StatefulWidget {
   const LoginLogin2Screen({Key? key}) : super(key: key);
@@ -12,6 +13,17 @@ class LoginLogin2Screen extends StatefulWidget {
 }
 
 class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
+  final emailAddress = TextEditingController();
+  final password = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    emailAddress.dispose();
+    password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double swidth = MediaQuery.of(context).size.width;
@@ -48,6 +60,7 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
                 padding: EdgeInsets.only(
                     left: swidth * 24 / 375, right: swidth * 24 / 375),
                 child: TextFieldCustom(
+                  tfController: emailAddress,
                   cHeight: sheight * 65 / 812,
                   cWidth: swidth * 327 / 375,
                   hintT: 'info@datainsight.jp',
@@ -69,6 +82,7 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
                 padding: EdgeInsets.only(
                     left: swidth * 24 / 375, right: swidth * 24 / 375),
                 child: TextFieldCustom(
+                  tfController: password,
                   cHeight: sheight * 65 / 812,
                   cWidth: swidth * 327 / 375,
                   hintT: 'パスワード', //password
@@ -92,8 +106,14 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
                   bHeight: sheight * 46 / 812,
                   bWidth: swidth * 343 / 375,
                   fTap: () {
-                    print('login');
-                    print('go to list view');
+                    String inputEmail = emailAddress.text;
+                    String inputPassword = password.text;
+                    bool isEmail = EmailValidator.validate(inputEmail);
+                    if (isEmail == true && inputPassword != '') {
+                      print('go to list view');
+                    } else {
+                      print('wrong email or password');
+                    }
                   },
                   bText: 'ログイン', //Login
                   tSize: 14,

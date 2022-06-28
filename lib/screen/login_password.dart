@@ -3,6 +3,7 @@ import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/dialog.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 import 'dart:io';
+import 'package:email_validator/email_validator.dart';
 
 class LoginPasswordScreen extends StatefulWidget {
   const LoginPasswordScreen({Key? key}) : super(key: key);
@@ -12,6 +13,15 @@ class LoginPasswordScreen extends StatefulWidget {
 }
 
 class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
+  final _myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _myController.dispose();
+    super.dispose();
+  }
+
   bool internetConnected = true;
 
   Future CheckUserConnection() async {
@@ -87,6 +97,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                     width: swidth * 329 / 375,
                     height: sheight * 60 / 812,
                     child: TextFieldCustom(
+                      tfController: _myController,
                       cHeight: sheight * 60 / 812,
                       cWidth: swidth * 329 / 375,
                       passwordTextField: false,
@@ -115,29 +126,34 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                       bColor: Color.fromRGBO(29, 32, 136, 1),
                       bText: '送信', // send
                       fTap: () {
-                        CheckUserConnection();
-                        print('internet error !');
-                        print('internet connect? ' +
-                            internetConnected.toString());
-                        return internetConnected
-                            ? showDialog(
-                                context: context,
-                                builder: (BuildContext context) => PopUpDialog(
-                                  contentDialog: '',
-                                  titleDialog: 'パスワード変更が完了しました！',
-                                  isContent: false,
-                                ),
-                                barrierDismissible: true,
-                              )
-                            : showDialog(
-                                context: context,
-                                builder: (BuildContext context) => PopUpDialog(
-                                    isContent: true,
-                                    titleDialog: 'エラー',
-                                    contentDialog:
-                                        'インターネット接続を確認してもう一度実行してください'),
-                                barrierDismissible: true,
-                              );
+                        String inputEmail = _myController.text;
+                        bool isEmail = EmailValidator.validate(inputEmail);
+                        if (isEmail == true) {
+                          CheckUserConnection();
+                          return internetConnected
+                              ? showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      PopUpDialog(
+                                    contentDialog: '',
+                                    titleDialog: 'パスワード変更が完了しました！',
+                                    isContent: false,
+                                  ),
+                                  barrierDismissible: true,
+                                )
+                              : showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      PopUpDialog(
+                                          isContent: true,
+                                          titleDialog: 'エラー',
+                                          contentDialog:
+                                              'インターネット接続を確認してもう一度実行してください'),
+                                  barrierDismissible: true,
+                                );
+                        } else {
+                          print('wrong email!');
+                        }
                       },
                     ),
                   )
