@@ -3,6 +3,7 @@ import 'package:flutter_tts/screen/registration.dart';
 import 'package:flutter_tts/widget/button_back.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 import 'package:flutter_tts/widget/button_text.dart';
+import 'package:email_validator/email_validator.dart';
 
 class EnterEmailAddressScreen extends StatefulWidget {
   const EnterEmailAddressScreen({Key? key}) : super(key: key);
@@ -111,12 +112,13 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                   bWidth: swidth * 343 / 375,
                   bText: '確認メールを送信', //Send confirmation email
                   fTap: () {
-                    _myController.text != ''
+                    bool isEmail = EmailValidator.validate(_myController.text);
+                    isEmail
                         ? Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => RegistrationScreen()))
-                        : print('no email found');
+                        : print('wrong email!');
                   },
                   bColor: Color.fromRGBO(29, 32, 136, 1),
                   tColor: Colors.white,
