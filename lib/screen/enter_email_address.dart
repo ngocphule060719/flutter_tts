@@ -112,12 +112,15 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                   bWidth: swidth * 343 / 375,
                   bText: '確認メールを送信', //Send confirmation email
                   fTap: () {
-                    bool isEmail = EmailValidator.validate(_myController.text);
+                    String inputEmail = _myController.text;
+                    bool isEmail = EmailValidator.validate(inputEmail);
                     isEmail
                         ? Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RegistrationScreen()))
+                                builder: (context) => RegistrationScreen(
+                                      emailAddress: inputEmail,
+                                    )))
                         : print('wrong email!');
                   },
                   bColor: Color.fromRGBO(29, 32, 136, 1),

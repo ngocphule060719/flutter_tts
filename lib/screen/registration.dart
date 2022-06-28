@@ -6,15 +6,30 @@ import '../widget/button_text.dart';
 import '../widget/text_field.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({Key? key}) : super(key: key);
+  late String emailAddress;
+
+  RegistrationScreen({required this.emailAddress});
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  //bool isMatched = true;
+  final _myController1 = TextEditingController();
+  final _myController2 = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _myController1.dispose();
+    _myController2.dispose();
+    super.dispose();
+  }
+
+  bool isMatched = false;
+  Color textColor = Colors.white;
   String notificationUnMatched = 'パスワードが一致しません';
+
   @override
   Widget build(BuildContext context) {
     final double swidth = MediaQuery.of(context).size.width;
@@ -54,7 +69,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: Container(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'youremail@gmail.com\nパスワードを確認してください',
+                  '${widget.emailAddress}\nパスワードを確認してください',
                   //youremail@gmail.com Please check your password
                   style: TextStyle(
                       fontSize: 17,
@@ -72,12 +87,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               width: swidth,
               height: sheight * 40 / 812,
               child: TextFieldCustom(
+                tfController: _myController1,
                 cHeight: sheight * 40 / 812,
                 cWidth: swidth * 325 / 375,
                 hintT: 'パスワードを入力してください', //Please enter your password
                 hintColor: Colors.grey,
                 tColor: Colors.black,
-                tSize: 17,
+                tSize: 15,
                 passwordTextField: true,
               ),
             ),
@@ -90,12 +106,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               width: swidth,
               height: sheight * 40 / 812,
               child: TextFieldCustom(
+                tfController: _myController2,
                 cHeight: sheight * 40 / 812,
                 cWidth: swidth * 325 / 375,
                 hintT: 'もう一度パスワードを入力してください', //Please enter your password again
                 hintColor: Colors.grey,
                 tColor: Colors.black,
-                tSize: 17,
+                tSize: 15,
                 passwordTextField: true,
               ),
             ),
@@ -110,7 +127,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: Text(
                 notificationUnMatched,
                 style: TextStyle(
-                    color: Colors.red,
+                    color: textColor,
                     fontSize: 10,
                     fontWeight: FontWeight.bold),
               ),
@@ -128,9 +145,23 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 bWidth: swidth * 343 / 375,
                 bText: '次へ', //to the next
                 fTap: () {
-                  print('to the next');
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                  if (_myController1.text == _myController2.text) {
+                    setState(() {
+                      isMatched = true;
+                      textColor = Colors.white;
+                    });
+                    print('to the next');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WelcomeScreen()));
+                  } else {
+                    print('is not matched!');
+                    setState(() {
+                      isMatched = false;
+                      textColor = Colors.red;
+                    });
+                  }
                 },
                 bColor: Color.fromRGBO(29, 32, 136, 1),
                 tColor: Colors.white,
