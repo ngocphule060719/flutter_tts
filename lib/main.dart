@@ -8,8 +8,18 @@ import 'package:flutter_tts/screen/login_signup.dart';
 import 'package:flutter_tts/screen/enter_email_address.dart';
 import 'package:flutter_tts/screen/welcome.dart';
 
-void main() {
-  runApp(const MyApp());
+// void main() {
+//   runApp(const MyApp());
+// }
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initialization(null);
+  runApp(MyApp());
+}
+
+Future initialization(BuildContext? context) async {
+  await Future.delayed(Duration(seconds: 3));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPasswordScreen(),
+      home: StartScreen(),
     );
   }
 }

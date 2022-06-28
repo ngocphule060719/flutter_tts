@@ -36,7 +36,9 @@ class ButtonWithTextAndIcon extends StatelessWidget {
             borderRadius: BorderRadius.circular(100),
             border: Border.all(color: borderColor ?? bColor ?? Colors.white)),
         child: GestureDetector(
-          onTap: fTap(),
+          onTap: () {
+            fTap();
+          },
           child: Stack(
             children: <Widget>[
               Positioned(

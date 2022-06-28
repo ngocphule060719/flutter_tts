@@ -32,7 +32,9 @@ class ButtonWithText extends StatelessWidget {
             color: bColor ?? Colors.white,
             borderRadius: BorderRadius.circular(100)),
         child: GestureDetector(
-          onTap: fTap(),
+          onTap: () {
+            fTap();
+          },
           child: Center(
               child: Text(
             bText,

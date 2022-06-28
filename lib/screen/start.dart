@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/login_signup.dart';
 import '../widget/button_text.dart';
 
 class StartScreen extends StatelessWidget {
@@ -10,7 +11,7 @@ class StartScreen extends StatelessWidget {
     final double sheight = MediaQuery.of(context).size.height;
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      //debugShowCheckedModeBanner: false,
       home: Container(
         color: Colors.white,
         width: swidth,
@@ -46,7 +47,12 @@ class StartScreen extends StatelessWidget {
               child: ButtonWithText(
                 bWidth: swidth * 342 / 375,
                 bHeight: 46,
-                fTap: () {},
+                fTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => LoginSignUpScreen())
+                    );
+                },
                 bText: '新しく始める（無料）', //Start anew (free)
                 bColor: Color.fromRGBO(29, 32, 136, 1),
                 tSize: 17,
