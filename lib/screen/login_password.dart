@@ -89,7 +89,7 @@ class LoginPasswordScreen extends StatelessWidget {
                       bColor: Color.fromRGBO(29, 32, 136, 1),
                       bText: '送信', // send
                       fTap: () {
-                        print('send');
+                        print('send to email');
                       },
                     ),
                   )

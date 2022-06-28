@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/login_login2.dart';
+import 'package:flutter_tts/screen/login_signup.dart';
 
 import '../widget/button_text_icon.dart';
 
@@ -101,7 +103,11 @@ class LoginLoginScreen extends StatelessWidget {
                 bText: 'メールアドレスで始める', //Start with Email
                 bIcon: 'images/mail_icon.png',
                 fTap: () {
-                  print('メールアドレスで始める');
+                  print('Start with Email');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginLogin2Screen()));
                 },
                 bColor: Color.fromRGBO(29, 32, 136, 1),
                 tSize: 14,
@@ -113,6 +119,8 @@ class LoginLoginScreen extends StatelessWidget {
               height: sheight * 24 / 812,
             ),
             BottomText(swidth, sheight * 20 / 812, () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginSignUpScreen()));
               print('register'); //register
             })
           ],
@@ -138,7 +146,7 @@ class LoginLoginScreen extends StatelessWidget {
           SizedBox(
             child: GestureDetector(
               onTap: () {
-                tTap;
+                tTap();
               },
               child: const Text(
                 'こちら', //Here

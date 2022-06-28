@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/login_password.dart';
+import 'package:flutter_tts/screen/login_signup.dart';
 import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 
@@ -89,7 +91,10 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
                 child: ButtonWithText(
                   bHeight: sheight * 46 / 812,
                   bWidth: swidth * 343 / 375,
-                  fTap: () {},
+                  fTap: () {
+                    print('login');
+                    print('go to list view');
+                  },
                   bText: 'ログイン', //Login
                   tSize: 14,
                   bColor: Color.fromRGBO(29, 32, 136, 1),
@@ -104,9 +109,14 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
               SizedBox(
                 width: swidth * 253 / 375,
                 height: sheight * 24 / 812,
-                child: BottomText1(swidth * 253 / 375, sheight * 24 / 812, () {
+                child: BottomTextCustom(swidth * 253 / 375, sheight * 24 / 812,
+                    () {
                   print('forgot password');
-                }),
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginPasswordScreen()));
+                }, 'パスワードを忘れてしまった場合は '),
               ),
               SizedBox(
                 width: swidth,
@@ -115,9 +125,14 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
               SizedBox(
                 width: swidth * 301 / 375,
                 height: sheight * 20 / 812,
-                child: BottomText2(swidth * 301 / 375, sheight * 20 / 812, () {
+                child: BottomTextCustom(swidth * 301 / 375, sheight * 24 / 812,
+                    () {
                   print('register');
-                }),
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginSignUpScreen()));
+                }, 'アカウントをお持ちでない場合登録は '),
               )
             ],
           ),
@@ -126,43 +141,8 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
     );
   }
 
-  Widget BottomText1(double tWidth, double tHeight, Function tTap) {
-    return Scaffold(
-      body: Container(
-        color: Colors.white,
-        width: tWidth,
-        height: tHeight,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              child: Text(
-                'パスワードを忘れてしまった場合は ', //if you have forgotten your password
-                style: TextStyle(fontSize: 13, color: Colors.black),
-              ),
-            ),
-            SizedBox(
-              child: GestureDetector(
-                onTap: () {
-                  tTap;
-                },
-                child: const Text(
-                  'こちら', //Here
-                  style: TextStyle(
-                      color: Color.fromRGBO(29, 32, 136, 1),
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget BottomText2(double tWidth, double tHeight, Function tTap) {
+  Widget BottomTextCustom(
+      double tWidth, double tHeight, Function tTap, String txt) {
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -173,14 +153,14 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
           children: <Widget>[
             SizedBox(
               child: Text(
-                'アカウントをお持ちでない場合登録は ', //If you do not have an account, you can register
+                txt,
                 style: TextStyle(fontSize: 13, color: Colors.black),
               ),
             ),
             SizedBox(
               child: GestureDetector(
                 onTap: () {
-                  tTap;
+                  tTap();
                 },
                 child: const Text(
                   'こちら', //Here
