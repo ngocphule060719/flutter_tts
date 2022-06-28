@@ -102,6 +102,7 @@ class LoginSignUpScreen extends StatelessWidget {
                 bText: 'メールアドレスで始める', //Start with Email
                 bIcon: 'images/mail_icon.png',
                 fTap: () {
+                  print('go to enter email address');
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -119,7 +120,7 @@ class LoginSignUpScreen extends StatelessWidget {
             BottomText(swidth * 249 / 375, sheight * 20 / 812, () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => LoginLoginScreen()));
-              print('ログイン'); //sign in
+              print('sign in'); //sign in
             })
           ],
         ),

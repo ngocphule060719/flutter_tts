@@ -14,7 +14,9 @@ class ButtonBack extends StatelessWidget {
         width: 49,
         height: 44,
         child: GestureDetector(
-          onTap: tapBack(),
+          onTap: () {
+            tapBack();
+          },
           child: Image.asset('images/back_icon.png'),
         ),
       ),

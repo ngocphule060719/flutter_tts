@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/welcome.dart';
 
 import '../widget/button_back.dart';
 import '../widget/button_text.dart';
@@ -38,6 +39,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               child: ButtonBack(
                 tapBack: () {
                   print('back!');
+                  Navigator.pop(context);
                 },
               ),
             ),
@@ -127,6 +129,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 bText: '次へ', //to the next
                 fTap: () {
                   print('to the next');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WelcomeScreen()));
                 },
                 bColor: Color.fromRGBO(29, 32, 136, 1),
                 tColor: Colors.white,

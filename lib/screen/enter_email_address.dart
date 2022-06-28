@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/registration.dart';
 import 'package:flutter_tts/widget/button_back.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 import 'package:flutter_tts/widget/button_text.dart';
@@ -17,11 +18,9 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
     final double swidth = MediaQuery.of(context).size.width;
     final double sheight = MediaQuery.of(context).size.height;
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: SingleChildScrollView(
-            child: Container(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
           alignment: Alignment.center,
           color: Colors.white,
           width: swidth,
@@ -38,7 +37,7 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                 height: sheight * 44 / 812,
                 child: ButtonBack(
                   tapBack: () {
-                    print('back!');
+                    Navigator.pop(context);
                   },
                 ),
               ),
@@ -103,6 +102,10 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                   bText: '確認メールを送信', //Send confirmation email
                   fTap: () {
                     print('send email');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationScreen()));
                   },
                   bColor: Color.fromRGBO(29, 32, 136, 1),
                   tColor: Colors.white,
@@ -112,7 +115,7 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
               )
             ],
           ),
-        )),
+        ),
       ),
     );
   }

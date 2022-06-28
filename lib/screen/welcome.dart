@@ -123,7 +123,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 bHeight: sheight * 46 / 812,
                 bText: '次へ', //to the next
                 fTap: () {
-                  isChecked == true ? print('next') : print('need to check');
+                  isChecked == true
+                      ? (print('go to list view'))
+                      : print('need to check');
                 },
                 bColor: bColor,
                 tColor: Colors.white,
