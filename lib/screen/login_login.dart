@@ -109,10 +109,10 @@ class LoginLoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: swidth * 249 / 375,
+              width: swidth,
               height: sheight * 24 / 812,
             ),
-            BottomText(swidth * 249 / 375, sheight * 20 / 812, () {
+            BottomText(swidth, sheight * 20 / 812, () {
               print('register'); //register
             })
           ],
