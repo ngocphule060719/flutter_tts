@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/enter_email_address.dart';
 
 class TextFieldCustom extends StatefulWidget {
   late double cWidth;
@@ -12,6 +13,7 @@ class TextFieldCustom extends StatefulWidget {
   InputBorder? inBorder;
   double? lSize;
   late bool passwordTextField;
+  TextEditingController? tfController;
 
   TextFieldCustom(
       {required this.cHeight,
@@ -24,7 +26,8 @@ class TextFieldCustom extends StatefulWidget {
       this.lText,
       this.inBorder,
       this.lSize,
-      required this.passwordTextField});
+      required this.passwordTextField,
+      this.tfController});
 
   @override
   State<TextFieldCustom> createState() => _TextFieldCustomState();
@@ -41,6 +44,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
         width: widget.cWidth,
         height: widget.cHeight,
         child: TextField(
+          controller: widget.tfController,
           obscureText: widget.passwordTextField ? !_isPassword : _isPassword,
           decoration: InputDecoration(
               suffixIcon: GestureDetector(

@@ -13,6 +13,15 @@ class EnterEmailAddressScreen extends StatefulWidget {
 }
 
 class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
+  final _myController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    _myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final double swidth = MediaQuery.of(context).size.width;
@@ -79,6 +88,7 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                 width: swidth,
                 height: sheight * 40 / 812,
                 child: TextFieldCustom(
+                  tfController: _myController,
                   cHeight: sheight * 40 / 812,
                   cWidth: swidth * 325 / 375,
                   hintT: 'メールアドレスを入力', //Enter your email address
@@ -93,7 +103,7 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                 height: sheight * 24 / 812,
               ),
               Container(
-                width: swidth,
+                width: swidth * 343 / 375,
                 height: sheight * 46 / 812,
                 padding: EdgeInsets.only(left: swidth * 16 / 375),
                 child: ButtonWithText(
@@ -101,11 +111,12 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                   bWidth: swidth * 343 / 375,
                   bText: '確認メールを送信', //Send confirmation email
                   fTap: () {
-                    print('send email');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegistrationScreen()));
+                    _myController.text != ''
+                        ? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RegistrationScreen()))
+                        : print('no email found');
                   },
                   bColor: Color.fromRGBO(29, 32, 136, 1),
                   tColor: Colors.white,
