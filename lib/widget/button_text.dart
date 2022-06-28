@@ -22,28 +22,26 @@ class ButtonWithText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Container(
-        alignment: Alignment.center,
-        width: bWidth,
-        height: bHeight,
-        decoration: BoxDecoration(
-            color: bColor ?? Colors.white,
-            borderRadius: BorderRadius.circular(100)),
-        child: GestureDetector(
-          onTap: () {
-            fTap();
-          },
-          child: Center(
-              child: Text(
-            bText,
-            style: TextStyle(
-                color: tColor ?? Colors.black,
-                fontSize: tSize ?? 10,
-                fontWeight: fWeight ?? FontWeight.normal),
-          )),
-        ),
+    return Container(
+      alignment: Alignment.center,
+      width: bWidth,
+      height: bHeight,
+      decoration: BoxDecoration(
+          color: bColor ?? Colors.white,
+          borderRadius: BorderRadius.circular(100)),
+      child: GestureDetector(
+        onTap: () {
+          fTap();
+        },
+        child: Center(
+            child: Text(
+          bText,
+          style: TextStyle(
+              color: tColor ?? Colors.black,
+              decoration: TextDecoration.none,
+              fontSize: tSize ?? 10,
+              fontWeight: fWeight ?? FontWeight.normal),
+        )),
       ),
     );
   }

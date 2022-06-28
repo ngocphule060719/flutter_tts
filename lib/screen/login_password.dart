@@ -1,9 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/widget/button_text.dart';
+import 'package:flutter_tts/widget/dialog.dart';
 import 'package:flutter_tts/widget/text_field.dart';
+import 'dart:io';
 
-class LoginPasswordScreen extends StatelessWidget {
+class LoginPasswordScreen extends StatefulWidget {
   const LoginPasswordScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPasswordScreen> createState() => _LoginPasswordScreenState();
+}
+
+class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
+  bool internetConnected = true;
+
+  Future CheckUserConnection() async {
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        setState(() {
+          internetConnected = true;
+        });
+      }
+    } on SocketException catch (_) {
+      setState(() {
+        internetConnected = false;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    CheckUserConnection();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +70,13 @@ class LoginPasswordScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     width: swidth * 293 / 375,
                     height: sheight * 48 / 812,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'パスワードリセットのメールをお送りしますので\nメールアドレスをご入力ください',
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal),
-                        )
-                      ],
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      'パスワードリセットのメールをお送りしますので\nメールアドレスをご入力ください',
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal),
                     ),
                   ),
                   SizedBox(
@@ -89,7 +115,29 @@ class LoginPasswordScreen extends StatelessWidget {
                       bColor: Color.fromRGBO(29, 32, 136, 1),
                       bText: '送信', // send
                       fTap: () {
-                        print('send to email');
+                        CheckUserConnection();
+                        print('internet error !');
+                        print('internet connect? ' +
+                            internetConnected.toString());
+                        return internetConnected
+                            ? showDialog(
+                                context: context,
+                                builder: (BuildContext context) => PopUpDialog(
+                                  contentDialog: '',
+                                  titleDialog: 'パスワード変更が完了しました！',
+                                  isContent: false,
+                                ),
+                                barrierDismissible: true,
+                              )
+                            : showDialog(
+                                context: context,
+                                builder: (BuildContext context) => PopUpDialog(
+                                    isContent: true,
+                                    titleDialog: 'エラー',
+                                    contentDialog:
+                                        'インターネット接続を確認してもう一度実行してください'),
+                                barrierDismissible: true,
+                              );
                       },
                     ),
                   )
