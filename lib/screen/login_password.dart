@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/screen/registration.dart';
 import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/dialog.dart';
 import 'package:flutter_tts/widget/text_field.dart';
@@ -135,6 +136,15 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                                   context: context,
                                   builder: (BuildContext context) =>
                                       PopUpDialog(
+                                    desRoute: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  RegistrationScreen(
+                                                    emailAddress: inputEmail,
+                                                  )));
+                                    },
                                     contentDialog: '',
                                     titleDialog: 'パスワード変更が完了しました！',
                                     isContent: false,
@@ -145,6 +155,9 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                                   context: context,
                                   builder: (BuildContext context) =>
                                       PopUpDialog(
+                                          desRoute: () {
+                                            Navigator.pop(context);
+                                          },
                                           isContent: true,
                                           titleDialog: 'エラー',
                                           contentDialog:

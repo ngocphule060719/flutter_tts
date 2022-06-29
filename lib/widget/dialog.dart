@@ -5,11 +5,13 @@ class PopUpDialog extends StatelessWidget {
   late String titleDialog;
   late String contentDialog;
   late bool isContent;
+  late Function desRoute;
 
   PopUpDialog(
       {required this.titleDialog,
       required this.contentDialog,
-      required this.isContent});
+      required this.isContent,
+      required this.desRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class PopUpDialog extends StatelessWidget {
         child: Text(
           textAlign: TextAlign.center,
           titleDialog,
-          style: TextStyle(
+          style: const TextStyle(
               color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold),
         ),
       ),
@@ -26,7 +28,7 @@ class PopUpDialog extends StatelessWidget {
           ? Text(
               contentDialog,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.normal),
@@ -38,7 +40,7 @@ class PopUpDialog extends StatelessWidget {
             bWidth: 146,
             bHeight: 46,
             fTap: () {
-              Navigator.pop(context);
+              desRoute();
             },
             bText: '閉じる',
             bColor: Color.fromRGBO(29, 32, 136, 1),
