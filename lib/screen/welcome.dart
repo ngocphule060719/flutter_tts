@@ -37,7 +37,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               width: swidth,
               //height: sheight * 22 / 812,
               padding: EdgeInsets.only(left: swidth * 16 / 375),
-              child: Text(
+              child: const Text(
                 'Ookini! にようこそ', //Welcome to Ookini!
                 style: TextStyle(
                     color: Colors.black,
@@ -56,7 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               padding: EdgeInsets.only(left: swidth * 16 / 375),
               child: Text(
                 '${widget.userName} ',
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.black,
                     fontSize: 13,
                     fontWeight: FontWeight.normal),
@@ -135,39 +135,39 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       backgroundColor: Colors.white,
       body: Text.rich(
         TextSpan(
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.normal),
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.normal),
             children: [
-              TextSpan(
+              const TextSpan(
                 text: 'Ookini! の',
                 style: TextStyle(color: Colors.black),
               ),
               TextSpan(
                   text: '利用規約',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Color.fromRGBO(29, 32, 136, 1),
                       decoration: TextDecoration.underline),
                   recognizer: TapGestureRecognizer()..onTap = () async {}),
-              TextSpan(
+              const TextSpan(
                 text: '、',
                 style: TextStyle(color: Colors.black),
               ),
               TextSpan(
                   text: 'プライバシーポリシー',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Color.fromRGBO(29, 32, 136, 1),
                       decoration: TextDecoration.underline),
                   recognizer: TapGestureRecognizer()..onTap = () async {}),
-              TextSpan(
+              const TextSpan(
                 text: '、',
                 style: TextStyle(color: Colors.black),
               ),
               TextSpan(
                   text: 'ガイドライン',
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Color.fromRGBO(29, 32, 136, 1),
                       decoration: TextDecoration.underline),
                   recognizer: TapGestureRecognizer()..onTap = () async {}),
-              TextSpan(
+              const TextSpan(
                 text: 'にも同意します。',
                 style: TextStyle(color: Colors.black),
               ),

@@ -68,7 +68,7 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
                   fWeight: FontWeight.normal,
                   lText: 'メールアドレス', //email address
                   lSize: 12,
-                  inBorder: OutlineInputBorder(),
+                  inBorder: const OutlineInputBorder(),
                   passwordTextField: false,
                 ),
               ),
@@ -90,7 +90,7 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
                   fWeight: FontWeight.normal,
                   lText: 'パスワード', //password
                   lSize: 12,
-                  inBorder: OutlineInputBorder(),
+                  inBorder: const OutlineInputBorder(),
                   passwordTextField: true,
                 ),
               ),
@@ -129,14 +129,18 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
               SizedBox(
                 width: swidth * 253 / 375,
                 height: sheight * 24 / 812,
-                child: BottomTextCustom(swidth * 253 / 375, sheight * 24 / 812,
-                    () {
-                  print('forgot password');
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginPasswordScreen()));
-                }, 'パスワードを忘れてしまった場合は '),
+                child: BottomTextCustom(
+                    tWidth: swidth * 253 / 375,
+                    tHeight: sheight * 24 / 812,
+                    tTap: () {
+                      print('forgot password');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const LoginPasswordScreen()));
+                    },
+                    txt: 'パスワードを忘れてしまった場合は '),
               ),
               SizedBox(
                 width: swidth,
@@ -145,14 +149,17 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
               SizedBox(
                 width: swidth * 301 / 375,
                 height: sheight * 20 / 812,
-                child: BottomTextCustom(swidth * 301 / 375, sheight * 24 / 812,
-                    () {
-                  print('register');
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginSignUpScreen()));
-                }, 'アカウントをお持ちでない場合登録は '),
+                child: BottomTextCustom(
+                    tWidth: swidth * 301 / 375,
+                    tHeight: sheight * 24 / 812,
+                    tTap: () {
+                      print('register');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginSignUpScreen()));
+                    },
+                    txt: 'アカウントをお持ちでない場合登録は '),
               )
             ],
           ),
@@ -162,7 +169,10 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
   }
 
   Widget BottomTextCustom(
-      double tWidth, double tHeight, Function tTap, String txt) {
+      {required double tWidth,
+      required double tHeight,
+      required Function tTap,
+      required String txt}) {
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -174,7 +184,7 @@ class _LoginLogin2ScreenState extends State<LoginLogin2Screen> {
             SizedBox(
               child: Text(
                 txt,
-                style: TextStyle(fontSize: 13, color: Colors.black),
+                style: const TextStyle(fontSize: 13, color: Colors.black),
               ),
             ),
             SizedBox(

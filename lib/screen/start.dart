@@ -52,7 +52,7 @@ class StartScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => LoginSignUpScreen()));
+                          builder: (context) => const LoginSignUpScreen()));
                 },
                 bText: '新しく始める（無料）', //Start anew (free)
                 bColor: Color.fromRGBO(29, 32, 136, 1),
@@ -75,7 +75,7 @@ class StartScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => LoginLoginScreen()));
+                          builder: (context) => const LoginLoginScreen()));
                 },
                 bText:
                     'すでに登録されている方はこちら', //Click here if you are already registered

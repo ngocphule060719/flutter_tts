@@ -65,7 +65,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                 ),
               ),
               labelText: widget.lText ?? '',
-              border: widget.inBorder ?? UnderlineInputBorder(),
+              border: widget.inBorder ?? const UnderlineInputBorder(),
               hintText: widget.hintT ?? '',
               hintStyle: TextStyle(
                   color: widget.hintColor ?? Colors.grey,

@@ -106,7 +106,8 @@ class LoginSignUpScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => EnterEmailAddressScreen()));
+                          builder: (context) =>
+                              const EnterEmailAddressScreen()));
                 },
                 bColor: Color.fromRGBO(29, 32, 136, 1),
                 tSize: 14,
@@ -117,18 +118,26 @@ class LoginSignUpScreen extends StatelessWidget {
               width: swidth * 249 / 375,
               height: sheight * 24 / 812,
             ),
-            BottomText(swidth * 249 / 375, sheight * 20 / 812, () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginLoginScreen()));
-              print('sign in'); //sign in
-            })
+            BottomText(
+                tWidth: swidth * 249 / 375,
+                tHeight: sheight * 20 / 812,
+                tTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginLoginScreen()));
+                  print('sign in'); //sign in
+                })
           ],
         ),
       ),
     );
   }
 
-  Widget BottomText(double tWidth, double tHeight, Function tTap) {
+  Widget BottomText(
+      {required double tWidth,
+      required double tHeight,
+      required Function tTap}) {
     return Container(
       color: Colors.white,
       width: tWidth,

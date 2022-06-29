@@ -123,7 +123,7 @@ class _EnterEmailAddressScreenState extends State<EnterEmailAddressScreen> {
                                     )))
                         : print('wrong email!');
                   },
-                  bColor: Color.fromRGBO(29, 32, 136, 1),
+                  bColor: const Color.fromRGBO(29, 32, 136, 1),
                   tColor: Colors.white,
                   tSize: 17,
                   fWeight: FontWeight.bold,

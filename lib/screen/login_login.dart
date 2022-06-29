@@ -118,18 +118,27 @@ class LoginLoginScreen extends StatelessWidget {
               width: swidth,
               height: sheight * 24 / 812,
             ),
-            BottomText(swidth, sheight * 20 / 812, () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginSignUpScreen()));
-              print('register'); //register
-            })
+            BottomText(
+              tWidth: swidth,
+              tHeight: sheight * 20 / 812,
+              tTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginSignUpScreen()));
+                print('register'); //register
+              },
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget BottomText(double tWidth, double tHeight, Function tTap) {
+  Widget BottomText(
+      {required double tWidth,
+      required double tHeight,
+      required Function tTap}) {
     return Container(
       color: Colors.white,
       width: tWidth,
@@ -137,7 +146,7 @@ class LoginLoginScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             child: Text(
               'アカウントをお持ちでない場合登録は ', //If you do not have an account, you can register
               style: TextStyle(fontSize: 13, color: Colors.black),
