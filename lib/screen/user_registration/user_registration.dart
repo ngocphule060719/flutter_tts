@@ -18,12 +18,9 @@ class UserRegistration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    //final _formKey = GlobalKey<FormState>();
 
-    final double swidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    final double swidth = MediaQuery.of(context).size.width;
     //final double sheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -75,7 +72,7 @@ class UserRegistration extends StatelessWidget {
                 textProfile,
                 style: TextStyle(
                   fontSize: 13,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
                   color: textColorDefault,
                 ),
               ),
@@ -84,46 +81,12 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 16 / 375,
             ),
-            SizedBox(
-              width: swidth * 327 / 375,
-              height: swidth * 65 / 375,
-              child: TextFieldCustom(
-                cHeight: swidth * 65 / 375,
-                cWidth: swidth * 327 / 375,
-                passwordTextField: false,
-                hintT: '名前を入力してください',
-                hintColor: hintTextColor,
-                lText: 'お名前',
-                lSize: 12,
-                tSize: 14,
-                inBorder: const OutlineInputBorder(),
-                lColor: labelTextColor,
-                tHeight: 1.5,
-                maxLine: 1,
-              ),
-            ),
+            textFieldName(tWidth: swidth),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 327 / 375,
-              height: swidth * 65 / 375,
-              child: TextFieldCustom(
-                cHeight: swidth * 65 / 375,
-                cWidth: swidth * 327 / 375,
-                passwordTextField: false,
-                hintT: 'ニックネームを入力してください',
-                hintColor: hintTextColor,
-                lText: 'ニックネーム',
-                lSize: 12,
-                tSize: 14,
-                inBorder: const OutlineInputBorder(),
-                lColor: labelTextColor,
-                tHeight: 1.5,
-                maxLine: 1,
-              ),
-            ),
+            textFieldNickName(tWidth: swidth),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
@@ -145,25 +108,7 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 327 / 375,
-              height: swidth * 159 / 375,
-              child: TextFieldCustom(
-                cHeight: swidth * 159 / 375,
-                cWidth: swidth * 327 / 375,
-                passwordTextField: false,
-                hintT: '選択してください',
-                hintColor: hintTextColor,
-                lText: '出身地',
-                lSize: 12,
-                tSize: 14,
-                inBorder: const OutlineInputBorder(),
-                lColor: labelTextColor,
-                tColor: textColorDefault,
-                maxLine: 10,
-                tHeight: 1.5,
-              ),
-            ),
+            textFieldIntroduction(tWidth: swidth),
             SizedBox(
               width: swidth,
               height: swidth * 8 / 375,
@@ -181,11 +126,11 @@ class UserRegistration extends StatelessWidget {
                 'よく出かける沿線',
                 style: TextStyle(
                     fontSize: 13,
-                    fontWeight: FontWeight.bold,
+                    fontFamily: 'SF Pro Text',
+                    fontWeight: FontWeight.w600,
                     color: textColorDefault),
               ),
             ),
-
           ],
         ),
       ),
@@ -224,9 +169,10 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
-  Widget btnAddPicture({required double bWidth,
-    required double bHeight,
-    required Function addFunction}) {
+  Widget btnAddPicture(
+      {required double bWidth,
+      required double bHeight,
+      required Function addFunction}) {
     return Container(
       width: bWidth,
       height: bHeight,
@@ -266,30 +212,28 @@ class UserRegistration extends StatelessWidget {
   }
 
   Widget avatarProfile({required double sWidth}) {
-    return Container(
-        width: sWidth * 160 / 375,
-        height: sWidth * 160 / 375,
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.center,
-              child: avatar(
-                  aWidth: sWidth * 160 / 375,
-                  aHeight: sWidth * 160 / 375),
+    return SizedBox(
+      width: sWidth * 160 / 375,
+      height: sWidth * 160 / 375,
+      child: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.center,
+            child:
+                avatar(aWidth: sWidth * 160 / 375, aHeight: sWidth * 160 / 375),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: GestureDetector(
+              onTap: () {
+                // choose picture
+              },
+              child:
+                  camera(cWidth: sWidth * 42 / 375, cHeight: sWidth * 42 / 375),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: GestureDetector(
-                onTap: () {
-                  // choose picture
-                },
-                child: camera(
-                    cWidth: sWidth * 42 / 375,
-                    cHeight: sWidth * 42 / 375),
-              ),
-            )
-          ],
-        ),
+          )
+        ],
+      ),
     );
   }
 
@@ -352,6 +296,8 @@ class UserRegistration extends StatelessWidget {
               '以下に該当するような自己紹介文は避けましょう',
               style: TextStyle(
                 fontSize: 10,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Noto Sans JP',
                 color: labelTextColor,
               ),
             ),
@@ -366,6 +312,8 @@ class UserRegistration extends StatelessWidget {
                       '・個人情報を判断できるもの',
                       style: TextStyle(
                         fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Noto Sans JP',
                         color: labelTextColor,
                       ),
                     ),
@@ -376,6 +324,8 @@ class UserRegistration extends StatelessWidget {
                       '・利用規約違反',
                       style: TextStyle(
                         fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Noto Sans JP',
                         color: labelTextColor,
                       ),
                     ),
@@ -393,6 +343,8 @@ class UserRegistration extends StatelessWidget {
                     child: Text(
                       '・不快／卑猥な表現　',
                       style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Noto Sans JP',
                         fontSize: 10,
                         color: labelTextColor,
                       ),
@@ -404,6 +356,8 @@ class UserRegistration extends StatelessWidget {
                       '・公序良俗違反／法律違反',
                       style: TextStyle(
                         fontSize: 10,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: 'Noto Sans JP',
                         color: labelTextColor,
                       ),
                     ),
@@ -414,6 +368,8 @@ class UserRegistration extends StatelessWidget {
             Text(
               '・勧誘と判断できる内容　',
               style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Noto Sans JP',
                 fontSize: 10,
                 color: labelTextColor,
               ),
@@ -422,9 +378,7 @@ class UserRegistration extends StatelessWidget {
         ));
   }
 
-  Widget dropDownSex({
-    required double dWidth, required double dHeight
-  }) {
+  Widget dropDownSex({required double dWidth, required double dHeight}) {
     return Container(
       width: dWidth,
       height: dHeight,
@@ -449,9 +403,7 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
-  Widget dropDownProfession({
-    required double dWidth, required double dHeight
-  }) {
+  Widget dropDownProfession({required double dWidth, required double dHeight}) {
     return Container(
       width: dWidth,
       height: dHeight,
@@ -476,9 +428,7 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
-  Widget dropDownBirthplace({
-    required double dWidth, required double dHeight
-  }) {
+  Widget dropDownBirthplace({required double dWidth, required double dHeight}) {
     return Container(
       width: dWidth,
       height: dHeight,
@@ -503,4 +453,73 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
+  Widget textFieldName({required double tWidth}) {
+    return SizedBox(
+      width: tWidth * 327 / 375,
+      height: tWidth * 65 / 375,
+      child: TextFieldCustom(
+        cHeight: tWidth * 65 / 375,
+        cWidth: tWidth * 327 / 375,
+        passwordTextField: false,
+        hintT: '名前を入力してください',
+        hintColor: hintTextColor,
+        lText: 'お名前',
+        lSize: 12,
+        tSize: 14,
+        inBorder: const OutlineInputBorder(),
+        lColor: labelTextColor,
+        tHeight: 1.5,
+        maxLine: 1,
+        tWeight: FontWeight.w500,
+        fWeight: FontWeight.w500,
+      ),
+    );
+  }
+
+  Widget textFieldNickName({required double tWidth}) {
+    return SizedBox(
+      width: tWidth * 327 / 375,
+      height: tWidth * 65 / 375,
+      child: TextFieldCustom(
+        cHeight: tWidth * 65 / 375,
+        cWidth: tWidth * 327 / 375,
+        passwordTextField: false,
+        hintT: 'ニックネームを入力してください',
+        hintColor: hintTextColor,
+        lText: 'ニックネーム',
+        lSize: 12,
+        tSize: 14,
+        inBorder: const OutlineInputBorder(),
+        lColor: labelTextColor,
+        tHeight: 1.5,
+        maxLine: 1,
+        tWeight: FontWeight.w500,
+        fWeight: FontWeight.w500,
+      ),
+    );
+  }
+
+  Widget textFieldIntroduction({required double tWidth}) {
+    return SizedBox(
+      width: tWidth * 327 / 375,
+      height: tWidth * 159 / 375,
+      child: TextFieldCustom(
+        cHeight: tWidth * 159 / 375,
+        cWidth: tWidth * 327 / 375,
+        passwordTextField: false,
+        hintT: '選択してください',
+        hintColor: hintTextColor,
+        lText: '出身地',
+        lSize: 12,
+        tSize: 14,
+        inBorder: const OutlineInputBorder(),
+        lColor: labelTextColor,
+        tColor: textColorDefault,
+        maxLine: 10,
+        tHeight: 1.5,
+        tWeight: FontWeight.w500,
+        fWeight: FontWeight.w500,
+      ),
+    );
+  }
 }

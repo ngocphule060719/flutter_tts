@@ -51,17 +51,20 @@ class _DropDownCustomState extends State<DropDownCustom> {
           decoration: InputDecoration(
             labelText: widget.lText ?? 'label',
             labelStyle: TextStyle(
+                fontFamily: 'Roboto',
                 color: widget.lColor ?? defaultTextColor,
                 fontWeight: widget.lFontW ?? FontWeight.normal,
                 fontSize: widget.lSize ?? 10),
             hintText: widget.hText ?? 'hint',
             hintStyle: TextStyle(
+                fontFamily: 'Noto Sans JP',
                 color: widget.hColor ?? defaultTextColor,
                 fontWeight: widget.hFontW ?? FontWeight.normal,
                 fontSize: widget.hSize ?? 10),
             border: OutlineInputBorder(),
           ),
           style: TextStyle(
+            fontFamily: 'Noto Sans JP',
             color: widget.tColor ?? defaultTextColor,
             fontSize: widget.hSize ?? 10,
             fontWeight: widget.tFontW ?? FontWeight.normal,
@@ -70,13 +73,14 @@ class _DropDownCustomState extends State<DropDownCustom> {
             return DropdownMenuItem(
               value: value,
               child: Text(
-                  value,
-                  style: TextStyle(
-                    color: widget.tColor ?? defaultTextColor,
-                    fontSize: widget.hSize ?? 10,
-                    fontWeight: widget.tFontW ?? FontWeight.normal,
-                  ),
+                value,
+                style: TextStyle(
+                  color: widget.tColor ?? defaultTextColor,
+                  fontSize: widget.hSize ?? 10,
+                  fontWeight: widget.tFontW ?? FontWeight.normal,
+                  fontFamily: 'Noto Sans JP',
                 ),
+              ),
             );
           }).toList(),
           onChanged: (value) {
