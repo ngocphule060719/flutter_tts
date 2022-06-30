@@ -12,22 +12,28 @@ class TextFieldCustom extends StatefulWidget {
   String? lText;
   InputBorder? inBorder;
   double? lSize;
+  double? tHeight;
+  int? maxLine;
+  Color? lColor;
   late bool passwordTextField;
   TextEditingController? tfController;
 
-  TextFieldCustom(
-      {required this.cHeight,
-      required this.cWidth,
-      this.hintT,
-      this.hintColor,
-      this.tColor,
-      this.tSize,
-      this.fWeight,
-      this.lText,
-      this.inBorder,
-      this.lSize,
-      required this.passwordTextField,
-      this.tfController});
+  TextFieldCustom({required this.cHeight,
+    required this.cWidth,
+    this.maxLine,
+    this.tHeight,
+    this.hintT,
+    this.hintColor,
+    this.tColor,
+    this.tSize,
+    this.fWeight,
+    this.lText,
+    this.inBorder,
+    this.lSize,
+    required this.passwordTextField,
+    this.lColor,
+
+    this.tfController});
 
   @override
   State<TextFieldCustom> createState() => _TextFieldCustomState();
@@ -35,6 +41,7 @@ class TextFieldCustom extends StatefulWidget {
 
 class _TextFieldCustomState extends State<TextFieldCustom> {
   bool _isPassword = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,15 +51,21 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
         width: widget.cWidth,
         height: widget.cHeight,
         child: TextField(
+          maxLines: widget.maxLine,
           controller: widget.tfController,
+          style: TextStyle(
+            fontSize: widget.tSize ?? 22,
+            color: widget.tColor ?? Colors.black,
+            height: widget.tHeight ?? 1.0,
+          ),
           obscureText: widget.passwordTextField ? !_isPassword : _isPassword,
           decoration: InputDecoration(
               suffixIcon: GestureDetector(
                 onTap: () {
                   widget.passwordTextField
                       ? setState(() {
-                          _isPassword = !_isPassword;
-                        })
+                    _isPassword = !_isPassword;
+                  })
                       : null;
                 },
                 child: Icon(
@@ -72,7 +85,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                   fontSize: widget.tSize ?? 22,
                   fontWeight: widget.fWeight ?? FontWeight.normal),
               labelStyle: TextStyle(
-                  color: widget.tColor ?? Colors.black,
+                  color: widget.lColor ?? widget.tColor ?? Colors.black,
                   fontSize: widget.lSize ?? 22,
                   fontWeight: widget.fWeight ?? FontWeight.normal)),
         ),

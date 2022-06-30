@@ -81,7 +81,7 @@ class _LoginPasswordScreenState extends State<LoginPasswordScreen> {
                   alignment: Alignment.center,
                   width: swidth * 293 / 375,
                   height: sheight * 48 / 812,
-                  child: const Text(
+                  child: Text(
                     textAlign: TextAlign.center,
                     'パスワードリセットのメールをお送りしますので\nメールアドレスをご入力ください',
                     style: TextStyle(
