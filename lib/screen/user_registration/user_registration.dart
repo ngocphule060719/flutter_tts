@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/drop_down_text_feild.dart';
 import 'package:flutter_tts/widget/text_field.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class UserRegistration extends StatelessWidget {
   final String appBarTitle = 'ユーザー登録';
@@ -57,7 +58,7 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            avatarProfile(sWidth: swidth),
+            avatarProfile(sWidth: swidth, context: context),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
@@ -368,7 +369,7 @@ class UserRegistration extends StatelessWidget {
   }
 
   Widget iconImagetext({required double cWidth, required Image img}) {
-    return Container(
+    return SizedBox(
       width: cWidth * 343 / 375,
       height: cWidth * 64 / 375,
       child: Row(
@@ -377,7 +378,9 @@ class UserRegistration extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                //delete
+              },
               child: Image.asset('images/icon_red.png'),
             ),
           ),
@@ -424,7 +427,8 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
-  Widget avatarProfile({required double sWidth}) {
+  Widget avatarProfile(
+      {required double sWidth, required BuildContext context}) {
     return SizedBox(
       width: sWidth * 160 / 375,
       height: sWidth * 160 / 375,
@@ -439,7 +443,94 @@ class UserRegistration extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: GestureDetector(
               onTap: () {
-                // choose picture
+                // popup
+                showCupertinoModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(16.0),
+                            topRight: Radius.circular(16.0),
+                          ),
+                        ),
+                        height: sWidth * 261 / 375,
+                        width: sWidth,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            SizedBox(
+                              width: sWidth,
+                              height: sWidth * 24 / 375,
+                            ),
+                            Center(
+                              child: Text(
+                                '【注意】以下の写真は登録できません',
+                                style: TextStyle(
+                                    decoration: TextDecoration.none,
+                                    color: textColorDefault,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Noto Sans JP'),
+                              ),
+                            ),
+                            Center(
+                              child: Text(
+                                '・肖像権、著作権を侵害する画像',
+                                style: TextStyle(
+                                    decoration: TextDecoration.none,
+                                    color: textColorDefault,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Noto Sans JP'),
+                              ),
+                            ),
+                            Center(
+                              child: Text(
+                                '・その他利用規約に違反する画像',
+                                style: TextStyle(
+                                    decoration: TextDecoration.none,
+                                    color: textColorDefault,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Noto Sans JP'),
+                              ),
+                            ),
+                            SizedBox(
+                              width: sWidth,
+                              height: sWidth * 24 / 375,
+                            ),
+                            ButtonWithText(
+                              bWidth: sWidth * 343 / 375,
+                              bHeight: sWidth * 46 / 375,
+                              fTap: () {},
+                              bText: 'ライブラリから選ぶ',
+                              bColor: appColor,
+                              tSize: 17,
+                              fWeight: FontWeight.w600,
+                              fFmamily: 'SF Pro Text',
+                              tColor: bgColor,
+                            ),
+                            SizedBox(
+                              width: sWidth,
+                              height: sWidth * 16 / 375,
+                            ),
+                            ButtonWithText(
+                              bWidth: sWidth * 343 / 375,
+                              bHeight: sWidth * 46 / 375,
+                              fTap: () {},
+                              bText: '写真を撮る',
+                              bColor: appColor,
+                              tSize: 17,
+                              fWeight: FontWeight.w600,
+                              fFmamily: 'SF Pro Text',
+                              tColor: bgColor,
+                            ),
+                          ],
+                        ),
+                      );
+                    });
               },
               child:
                   camera(cWidth: sWidth * 42 / 375, cHeight: sWidth * 42 / 375),
