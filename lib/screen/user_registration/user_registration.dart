@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/widget/drop_down_text_feild.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 
 class UserRegistration extends StatelessWidget {
@@ -17,34 +18,36 @@ class UserRegistration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double swidth = MediaQuery.of(context).size.width;
+    final _formKey = GlobalKey<FormState>();
+
+    final double swidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     //final double sheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: bgColor,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(swidth * 88 / 375),
-        child: AppBar(
-          backgroundColor: bgColor,
-          elevation: 0,
-          leading: IconButton(
-            onPressed: () {
-              //back to previous screen
-            },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: textColorDefault,
-            ),
+      appBar: AppBar(
+        backgroundColor: bgColor,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            //back to previous screen
+          },
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: textColorDefault,
           ),
-          title: Text(
-            appBarTitle,
-            style: TextStyle(
-                color: textColorDefault,
-                fontSize: 17,
-                fontWeight: FontWeight.bold),
-          ),
-          centerTitle: true,
         ),
+        title: Text(
+          appBarTitle,
+          style: TextStyle(
+              color: textColorDefault,
+              fontSize: 17,
+              fontWeight: FontWeight.w400),
+        ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -54,79 +57,12 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 160 / 375,
-              height: swidth * 160 / 375,
-              child: Stack(
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: avatar(
-                        aWidth: swidth * 160 / 375,
-                        aHeight: swidth * 160 / 375),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: GestureDetector(
-                      onTap: () {
-                        // choose picture
-                      },
-                      child: camera(
-                          cWidth: swidth * 42 / 375,
-                          cHeight: swidth * 42 / 375),
-                    ),
-                  )
-                ],
-              ),
-            ),
+            avatarProfile(sWidth: swidth),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 325 / 375,
-              height: swidth * 72 / 375,
-              child: Row(
-                children: <Widget>[
-                  btnAddPicture(
-                      bWidth: swidth * 72 / 375,
-                      bHeight: swidth * 72 / 375,
-                      addFunction: () {
-                        // add picture
-                      }),
-                  SizedBox(
-                    width: swidth * 12 / 375,
-                    height: swidth * 12 / 375,
-                  ),
-                  btnAddPicture(
-                      bWidth: swidth * 72 / 375,
-                      bHeight: swidth * 72 / 375,
-                      addFunction: () {
-                        // add picture
-                      }),
-                  SizedBox(
-                    width: swidth * 12 / 375,
-                    height: swidth * 12 / 375,
-                  ),
-                  btnAddPicture(
-                      bWidth: swidth * 72 / 375,
-                      bHeight: swidth * 72 / 375,
-                      addFunction: () {
-                        // add picture
-                      }),
-                  SizedBox(
-                    width: swidth * 12 / 375,
-                    height: swidth * 12 / 375,
-                  ),
-                  btnAddPicture(
-                      bWidth: swidth * 72 / 375,
-                      bHeight: swidth * 72 / 375,
-                      addFunction: () {
-                        // add picture
-                      }),
-                ],
-              ),
-            ),
+            rowAddPicture(rWidth: swidth),
             SizedBox(
               width: swidth,
               height: swidth * 32 / 375,
@@ -162,6 +98,8 @@ class UserRegistration extends StatelessWidget {
                 tSize: 14,
                 inBorder: const OutlineInputBorder(),
                 lColor: labelTextColor,
+                tHeight: 1.5,
+                maxLine: 1,
               ),
             ),
             SizedBox(
@@ -182,68 +120,27 @@ class UserRegistration extends StatelessWidget {
                 tSize: 14,
                 inBorder: const OutlineInputBorder(),
                 lColor: labelTextColor,
+                tHeight: 1.5,
+                maxLine: 1,
               ),
             ),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 327 / 375,
-              height: swidth * 65 / 375,
-              child: TextFieldCustom(
-                cHeight: swidth * 65 / 375,
-                cWidth: swidth * 327 / 375,
-                passwordTextField: false,
-                hintT: '選択してください',
-                hintColor: hintTextColor,
-                lText: '性別',
-                lSize: 12,
-                tSize: 14,
-                inBorder: const OutlineInputBorder(),
-                lColor: labelTextColor,
-              ),
-            ),
+            dropDownSex(dHeight: swidth * 65 / 375, dWidth: swidth * 327 / 375),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 327 / 375,
-              height: swidth * 65 / 375,
-              child: TextFieldCustom(
-                cHeight: swidth * 65 / 375,
-                cWidth: swidth * 327 / 375,
-                passwordTextField: false,
-                hintT: '選択してください',
-                hintColor: hintTextColor,
-                lText: '職業',
-                lSize: 12,
-                tSize: 14,
-                inBorder: const OutlineInputBorder(),
-                lColor: labelTextColor,
-              ),
-            ),
+            dropDownProfession(
+                dWidth: swidth * 327 / 375, dHeight: swidth * 65 / 375),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            SizedBox(
-              width: swidth * 327 / 375,
-              height: swidth * 65 / 375,
-              child: TextFieldCustom(
-                cHeight: swidth * 65 / 375,
-                cWidth: swidth * 327 / 375,
-                passwordTextField: false,
-                hintT: '選択してください',
-                hintColor: hintTextColor,
-                lText: '出身地',
-                lSize: 12,
-                tSize: 14,
-                inBorder: const OutlineInputBorder(),
-                lColor: labelTextColor,
-              ),
-            ),
+            dropDownBirthplace(
+                dWidth: swidth * 327 / 375, dHeight: swidth * 65 / 375),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
@@ -262,7 +159,8 @@ class UserRegistration extends StatelessWidget {
                 tSize: 14,
                 inBorder: const OutlineInputBorder(),
                 lColor: labelTextColor,
-                maxLine: 8,
+                tColor: textColorDefault,
+                maxLine: 10,
                 tHeight: 1.5,
               ),
             ),
@@ -299,9 +197,13 @@ class UserRegistration extends StatelessWidget {
       width: aWidth,
       height: aHeight,
       decoration: BoxDecoration(color: btnBgColor, shape: BoxShape.circle),
-      child: Icon(
-        Icons.person,
-        size: aWidth * 48 * 2 / 160,
+      child: Align(
+        alignment: Alignment.center,
+        child: SizedBox(
+          width: aWidth * 48 / 160,
+          height: aWidth * 48 / 160,
+          child: Image.asset('images/icon_person.png'),
+        ),
       ),
     );
   }
@@ -314,18 +216,17 @@ class UserRegistration extends StatelessWidget {
         color: camBgColor,
         shape: BoxShape.circle,
       ),
-      child: Icon(
-        Icons.camera_alt,
-        size: cWidth * 42 * 2 / 160,
-        color: bgColor,
+      child: SizedBox(
+        width: cWidth * 19.14 / 42,
+        height: cHeight * 16.12 / 42,
+        child: Image.asset('images/icon_camera.png'),
       ),
     );
   }
 
-  Widget btnAddPicture(
-      {required double bWidth,
-      required double bHeight,
-      required Function addFunction}) {
+  Widget btnAddPicture({required double bWidth,
+    required double bHeight,
+    required Function addFunction}) {
     return Container(
       width: bWidth,
       height: bHeight,
@@ -339,12 +240,13 @@ class UserRegistration extends StatelessWidget {
           alignment: Alignment.center,
           children: <Widget>[
             Align(
-                alignment: Alignment.center,
-                child: Icon(
-                  Icons.add,
-                  size: bWidth * 17 * 2 / 72,
-                  color: btnAddIconColor,
-                )),
+              alignment: Alignment.center,
+              child: SizedBox(
+                width: bWidth * 17 / 72,
+                height: bWidth * 17 / 72,
+                child: Image.asset('images/icon_add.png'),
+              ),
+            ),
             Positioned(
               bottom: bHeight * 9 / 72,
               child: Center(
@@ -359,6 +261,81 @@ class UserRegistration extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget avatarProfile({required double sWidth}) {
+    return Container(
+        width: sWidth * 160 / 375,
+        height: sWidth * 160 / 375,
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.center,
+              child: avatar(
+                  aWidth: sWidth * 160 / 375,
+                  aHeight: sWidth * 160 / 375),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: GestureDetector(
+                onTap: () {
+                  // choose picture
+                },
+                child: camera(
+                    cWidth: sWidth * 42 / 375,
+                    cHeight: sWidth * 42 / 375),
+              ),
+            )
+          ],
+        ),
+    );
+  }
+
+  Widget rowAddPicture({required double rWidth}) {
+    return SizedBox(
+      width: rWidth * 325 / 375,
+      height: rWidth * 72 / 375,
+      child: Row(
+        children: <Widget>[
+          btnAddPicture(
+              bWidth: rWidth * 72 / 375,
+              bHeight: rWidth * 72 / 375,
+              addFunction: () {
+                // add picture
+              }),
+          SizedBox(
+            width: rWidth * 12 / 375,
+            height: rWidth * 12 / 375,
+          ),
+          btnAddPicture(
+              bWidth: rWidth * 72 / 375,
+              bHeight: rWidth * 72 / 375,
+              addFunction: () {
+                // add picture
+              }),
+          SizedBox(
+            width: rWidth * 12 / 375,
+            height: rWidth * 12 / 375,
+          ),
+          btnAddPicture(
+              bWidth: rWidth * 72 / 375,
+              bHeight: rWidth * 72 / 375,
+              addFunction: () {
+                // add picture
+              }),
+          SizedBox(
+            width: rWidth * 12 / 375,
+            height: rWidth * 12 / 375,
+          ),
+          btnAddPicture(
+              bWidth: rWidth * 72 / 375,
+              bHeight: rWidth * 72 / 375,
+              addFunction: () {
+                // add picture
+              }),
+        ],
       ),
     );
   }
@@ -444,4 +421,86 @@ class UserRegistration extends StatelessWidget {
           ],
         ));
   }
+
+  Widget dropDownSex({
+    required double dWidth, required double dHeight
+  }) {
+    return Container(
+      width: dWidth,
+      height: dHeight,
+      alignment: Alignment.center,
+      child: DropDownCustom(
+        dWidth: dWidth,
+        dHeight: dHeight,
+        inputData: ['男', '女性', '他の'],
+        hText: '選択してください',
+        //Please select another
+        lText: '性別',
+        //sex
+        lColor: labelTextColor,
+        lSize: 12,
+        hColor: hintTextColor,
+        hFontW: FontWeight.w500,
+        hSize: 14,
+        lFontW: FontWeight.w400,
+        tColor: textColorDefault,
+        tFontW: FontWeight.w400,
+      ),
+    );
+  }
+
+  Widget dropDownProfession({
+    required double dWidth, required double dHeight
+  }) {
+    return Container(
+      width: dWidth,
+      height: dHeight,
+      alignment: Alignment.center,
+      child: DropDownCustom(
+        dWidth: dWidth,
+        dHeight: dHeight,
+        inputData: ['医者', 'エンジニア', '先生', '瞳', '学生', 'ワーカー'],
+        hText: '選択してください',
+        //Please select another
+        lText: '職業',
+        //Profession
+        lColor: labelTextColor,
+        lSize: 12,
+        hColor: hintTextColor,
+        hFontW: FontWeight.w500,
+        hSize: 14,
+        lFontW: FontWeight.w400,
+        tColor: textColorDefault,
+        tFontW: FontWeight.w400,
+      ),
+    );
+  }
+
+  Widget dropDownBirthplace({
+    required double dWidth, required double dHeight
+  }) {
+    return Container(
+      width: dWidth,
+      height: dHeight,
+      alignment: Alignment.center,
+      child: DropDownCustom(
+        dWidth: dWidth,
+        dHeight: dHeight,
+        inputData: ['東京県', '大阪県', '京都県', '神奈川県', '高知県', '熊本県'],
+        hText: '選択してください',
+        //Please select another
+        lText: '出身地',
+        //Birthplace
+        lColor: labelTextColor,
+        lSize: 12,
+        hColor: hintTextColor,
+        hFontW: FontWeight.w500,
+        hSize: 14,
+        lFontW: FontWeight.w400,
+        tColor: textColorDefault,
+        tFontW: FontWeight.w400,
+      ),
+    );
+  }
+
 }
