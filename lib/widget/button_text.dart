@@ -9,16 +9,17 @@ class ButtonWithText extends StatelessWidget {
   Color? tColor;
   double? tSize;
   FontWeight? fWeight;
+  String? fFmamily;
 
-  ButtonWithText(
-      {required this.bWidth,
-      required this.bHeight,
-      required this.fTap,
-      required this.bText,
-      this.bColor,
-      this.tColor,
-      this.tSize,
-      this.fWeight});
+  ButtonWithText({required this.bWidth,
+    required this.bHeight,
+    required this.fTap,
+    required this.bText,
+    this.bColor,
+    this.tColor,
+    this.tSize,
+    this.fFmamily,
+    this.fWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +36,14 @@ class ButtonWithText extends StatelessWidget {
         },
         child: Center(
             child: Text(
-          bText,
-          style: TextStyle(
-              color: tColor ?? Colors.black,
-              decoration: TextDecoration.none,
-              fontSize: tSize ?? 10,
-              fontWeight: fWeight ?? FontWeight.normal),
-        )),
+              bText,
+              style: TextStyle(
+                  color: tColor ?? Colors.black,
+                  fontFamily: fFmamily ?? 'Noto Sans JP',
+                  decoration: TextDecoration.none,
+                  fontSize: tSize ?? 10,
+                  fontWeight: fWeight ?? FontWeight.normal),
+            )),
       ),
     );
   }

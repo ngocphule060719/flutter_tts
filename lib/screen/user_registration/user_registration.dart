@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/drop_down_text_feild.dart';
 import 'package:flutter_tts/widget/text_field.dart';
 
@@ -13,6 +14,8 @@ class UserRegistration extends StatelessWidget {
   final String textProfile = 'プロフィール';
   final Color hintTextColor = const Color.fromRGBO(0, 0, 0, 0.12);
   final Color labelTextColor = const Color.fromRGBO(0, 0, 0, 0.6);
+  final Color appColor = const Color.fromRGBO(29, 32, 136, 1);
+  final Color textBeforeCheckBoxColor = const Color.fromRGBO(95, 108, 114, 1);
 
   const UserRegistration({Key? key}) : super(key: key);
 
@@ -64,19 +67,7 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 32 / 375,
             ),
-            Container(
-              width: swidth,
-              height: swidth * 18 / 375,
-              padding: EdgeInsets.only(left: swidth * 16 / 375),
-              child: Text(
-                textProfile,
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: textColorDefault,
-                ),
-              ),
-            ),
+            firstText(tWidth: swidth),
             SizedBox(
               width: swidth,
               height: swidth * 16 / 375,
@@ -118,19 +109,180 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 48 / 375,
             ),
-            Container(
+            choiceText(tWidth: swidth, inText: 'よく出かける沿線'),
+            SizedBox(
               width: swidth,
-              height: swidth * 18 / 375,
-              padding: EdgeInsets.only(left: swidth * 16 / 375),
-              child: Text(
-                'よく出かける沿線',
-                style: TextStyle(
-                    fontSize: 13,
-                    fontFamily: 'SF Pro Text',
-                    fontWeight: FontWeight.w600,
-                    color: textColorDefault),
+              height: swidth * 16 / 375,
+            ),
+            iconImagetext(
+                cWidth: swidth, img: Image.asset('images/osaka_metro.png')),
+            SizedBox(
+              width: swidth,
+              height: swidth * 16 / 375,
+            ),
+            iconImagetext(
+                cWidth: swidth, img: Image.asset('images/osaka_metro.png')),
+            SizedBox(
+              width: swidth,
+              height: swidth * 24 / 375,
+            ),
+            buttonPlus(bWidth: swidth, bText: ' 沿線を追加する'),
+            SizedBox(
+              width: swidth,
+              height: swidth * 40 / 375,
+            ),
+            choiceText(tWidth: swidth, inText: 'よく出かけるエリア'),
+            SizedBox(
+              width: swidth,
+              height: swidth * 24 / 375,
+            ),
+            buttonPlus(bWidth: swidth, bText: ' エリアを追加する'),
+            SizedBox(
+              width: swidth,
+              height: swidth * 40 / 375,
+            ),
+            choiceText(tWidth: swidth, inText: 'お気に入りの店舗'),
+            SizedBox(
+              width: swidth,
+              height: swidth * 16 / 375,
+            ),
+            iconImagetext(
+                cWidth: swidth, img: Image.asset('images/restaurant.png')),
+            SizedBox(
+              width: swidth,
+              height: swidth * 24 / 375,
+            ),
+            buttonPlus(bWidth: swidth, bText: ' 店舗を追加する'),
+            SizedBox(
+              width: swidth,
+              height: swidth * 55 / 375,
+            ),
+            textBeforeCheckBox(tWidth: swidth),
+            SizedBox(
+              width: swidth,
+              height: swidth * 13 / 375,
+            ),
+            checkBoxAndText(cWidth: swidth),
+            SizedBox(
+              width: swidth,
+              height: swidth * 15 / 375,
+            ),
+            bottomButton(bWidth: swidth),
+            SizedBox(
+              width: swidth,
+              height: swidth * 30 / 375,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget bottomButton({required double bWidth}) {
+    return ButtonWithText(
+      bWidth: bWidth * 327 / 375,
+      bHeight: bWidth * 48 / 375,
+      fTap: () {},
+      bText: '上記に同意のうえ登録する',
+      bColor: appColor,
+      tColor: bgColor,
+      tSize: 14,
+      fWeight: FontWeight.w700,
+    );
+  }
+
+  Widget checkBoxAndText({required double cWidth}) {
+    return Container(
+      alignment: Alignment.center,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              width: cWidth * 24 / 375,
+              height: cWidth * 24 / 375,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(3)),
+              child: Icon(
+                Icons.check_box_rounded,
+                color: appColor,
+                size: 24,
               ),
             ),
+          ),
+          SizedBox(
+            width: cWidth * 7 / 375,
+            height: cWidth * 24 / 375,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '利用規約 ',
+                  style: TextStyle(
+                      color: appColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Noto Sans JP'),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Image.asset('images/eva_external-link-outline.png'),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  ' を確認しました ',
+                  style: TextStyle(
+                      color: appColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Noto Sans JP'),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buttonPlus({required double bWidth, required String bText}) {
+    return Container(
+      width: bWidth * 170 / 375,
+      height: bWidth * 40 / 375,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(
+            color: appColor,
+            width: 2.0,
+          )),
+      child: GestureDetector(
+        onTap: () {
+          //add
+        },
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.add,
+              color: appColor,
+              size: 21,
+            ),
+            Text(
+              bText,
+              style: TextStyle(
+                color: appColor,
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                fontFamily: 'SF Pro Text',
+              ),
+            )
           ],
         ),
       ),
@@ -155,6 +307,7 @@ class UserRegistration extends StatelessWidget {
 
   Widget camera({required double cWidth, required double cHeight}) {
     return Container(
+      alignment: Alignment.center,
       width: cWidth,
       height: cHeight,
       decoration: BoxDecoration(
@@ -164,7 +317,10 @@ class UserRegistration extends StatelessWidget {
       child: SizedBox(
         width: cWidth * 19.14 / 42,
         height: cHeight * 16.12 / 42,
-        child: Image.asset('images/icon_camera.png'),
+        child: Align(
+          alignment: Alignment.center,
+          child: Image.asset('images/icon_camera.png'),
+        ),
       ),
     );
   }
@@ -207,6 +363,63 @@ class UserRegistration extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget iconImagetext({required double cWidth, required Image img}) {
+    return Container(
+      width: cWidth * 343 / 375,
+      height: cWidth * 64 / 375,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: () {},
+              child: Image.asset('images/icon_red.png'),
+            ),
+          ),
+          SizedBox(
+            width: cWidth * 24 / 375,
+            height: cWidth * 64 / 375,
+          ),
+          SizedBox(
+            width: cWidth * 64 / 375,
+            height: cWidth * 64 / 375,
+            child: img,
+          ),
+          SizedBox(
+            width: cWidth * 16 / 375,
+            height: cWidth * 64 / 375,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              '大阪メトロ御堂筋線',
+              style: TextStyle(
+                color: textColorDefault,
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Noto Sans JP',
+              ),
+            ),
+          ),
+          SizedBox(
+            width: cWidth * 53 / 375,
+            height: cWidth * 64 / 375,
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: () {
+                //change position
+              },
+              child: Icon(Icons.menu),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -280,6 +493,22 @@ class UserRegistration extends StatelessWidget {
                 // add picture
               }),
         ],
+      ),
+    );
+  }
+
+  Widget choiceText({required double tWidth, required String inText}) {
+    return Container(
+      width: tWidth,
+      height: tWidth * 18 / 375,
+      padding: EdgeInsets.only(left: tWidth * 16 / 375),
+      child: Text(
+        inText, // Along the line that I often go out
+        style: TextStyle(
+            fontSize: 13,
+            fontFamily: 'SF Pro Text',
+            fontWeight: FontWeight.w600,
+            color: textColorDefault),
       ),
     );
   }
@@ -376,6 +605,22 @@ class UserRegistration extends StatelessWidget {
             ),
           ],
         ));
+  }
+
+  Widget firstText({required double tWidth}) {
+    return Container(
+      width: tWidth,
+      height: tWidth * 18 / 375,
+      padding: EdgeInsets.only(left: tWidth * 16 / 375),
+      child: Text(
+        textProfile,
+        style: TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+          color: textColorDefault,
+        ),
+      ),
+    );
   }
 
   Widget dropDownSex({required double dWidth, required double dHeight}) {
@@ -519,6 +764,22 @@ class UserRegistration extends StatelessWidget {
         tHeight: 1.5,
         tWeight: FontWeight.w500,
         fWeight: FontWeight.w500,
+      ),
+    );
+  }
+
+  Widget textBeforeCheckBox({required double tWidth}) {
+    return Container(
+      child: Center(
+        child: Text(
+          '以下利用規約を確認の上入力内容を登録してください。',
+          style: TextStyle(
+            color: textBeforeCheckBoxColor,
+            fontSize: 12,
+            fontFamily: 'Noto Sans JP',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
     );
   }
