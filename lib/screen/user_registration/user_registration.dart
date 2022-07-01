@@ -427,119 +427,119 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
-  Widget avatarProfile(
-      {required double sWidth, required BuildContext context}) {
-    return SizedBox(
-      width: sWidth * 160 / 375,
-      height: sWidth * 160 / 375,
-      child: Stack(
-        children: <Widget>[
-          Align(
-            alignment: Alignment.center,
-            child:
-                avatar(aWidth: sWidth * 160 / 375, aHeight: sWidth * 160 / 375),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: GestureDetector(
-              onTap: () {
-                // popup
-                showCupertinoModalBottomSheet<void>(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(16.0),
-                            topRight: Radius.circular(16.0),
-                          ),
-                        ),
-                        height: sWidth * 261 / 375,
-                        width: sWidth,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(
-                              width: sWidth,
-                              height: sWidth * 24 / 375,
-                            ),
-                            Center(
-                              child: Text(
-                                '【注意】以下の写真は登録できません',
-                                style: TextStyle(
-                                    decoration: TextDecoration.none,
-                                    color: textColorDefault,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily: 'Noto Sans JP'),
-                              ),
-                            ),
-                            Center(
-                              child: Text(
-                                '・肖像権、著作権を侵害する画像',
-                                style: TextStyle(
-                                    decoration: TextDecoration.none,
-                                    color: textColorDefault,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: 'Noto Sans JP'),
-                              ),
-                            ),
-                            Center(
-                              child: Text(
-                                '・その他利用規約に違反する画像',
-                                style: TextStyle(
-                                    decoration: TextDecoration.none,
-                                    color: textColorDefault,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: 'Noto Sans JP'),
-                              ),
-                            ),
-                            SizedBox(
-                              width: sWidth,
-                              height: sWidth * 24 / 375,
-                            ),
-                            ButtonWithText(
-                              bWidth: sWidth * 343 / 375,
-                              bHeight: sWidth * 46 / 375,
-                              fTap: () {},
-                              bText: 'ライブラリから選ぶ',
-                              bColor: appColor,
-                              tSize: 17,
-                              fWeight: FontWeight.w600,
-                              fFmamily: 'SF Pro Text',
-                              tColor: bgColor,
-                            ),
-                            SizedBox(
-                              width: sWidth,
-                              height: sWidth * 16 / 375,
-                            ),
-                            ButtonWithText(
-                              bWidth: sWidth * 343 / 375,
-                              bHeight: sWidth * 46 / 375,
-                              fTap: () {},
-                              bText: '写真を撮る',
-                              bColor: appColor,
-                              tSize: 17,
-                              fWeight: FontWeight.w600,
-                              fFmamily: 'SF Pro Text',
-                              tColor: bgColor,
-                            ),
-                          ],
-                        ),
-                      );
-                    });
-              },
-              child:
-                  camera(cWidth: sWidth * 42 / 375, cHeight: sWidth * 42 / 375),
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // Widget avatarProfile(
+  //     {required double sWidth, required BuildContext context}) {
+  //   return SizedBox(
+  //     width: sWidth * 160 / 375,
+  //     height: sWidth * 160 / 375,
+  //     child: Stack(
+  //       children: <Widget>[
+  //         Align(
+  //           alignment: Alignment.center,
+  //           child:
+  //               avatar(aWidth: sWidth * 160 / 375, aHeight: sWidth * 160 / 375),
+  //         ),
+  //         Align(
+  //           alignment: Alignment.bottomRight,
+  //           child: GestureDetector(
+  //             onTap: () {
+  //               // popup
+  //               showCupertinoModalBottomSheet<void>(
+  //                   context: context,
+  //                   builder: (BuildContext context) {
+  //                     return Container(
+  //                       decoration: const BoxDecoration(
+  //                         color: Colors.white,
+  //                         borderRadius: BorderRadius.only(
+  //                           topLeft: Radius.circular(16.0),
+  //                           topRight: Radius.circular(16.0),
+  //                         ),
+  //                       ),
+  //                       height: sWidth * 261 / 375,
+  //                       width: sWidth,
+  //                       child: Column(
+  //                         crossAxisAlignment: CrossAxisAlignment.center,
+  //                         children: <Widget>[
+  //                           SizedBox(
+  //                             width: sWidth,
+  //                             height: sWidth * 24 / 375,
+  //                           ),
+  //                           Center(
+  //                             child: Text(
+  //                               '【注意】以下の写真は登録できません',
+  //                               style: TextStyle(
+  //                                   decoration: TextDecoration.none,
+  //                                   color: textColorDefault,
+  //                                   fontSize: 14,
+  //                                   fontWeight: FontWeight.w600,
+  //                                   fontFamily: 'Noto Sans JP'),
+  //                             ),
+  //                           ),
+  //                           Center(
+  //                             child: Text(
+  //                               '・肖像権、著作権を侵害する画像',
+  //                               style: TextStyle(
+  //                                   decoration: TextDecoration.none,
+  //                                   color: textColorDefault,
+  //                                   fontSize: 14,
+  //                                   fontWeight: FontWeight.w400,
+  //                                   fontFamily: 'Noto Sans JP'),
+  //                             ),
+  //                           ),
+  //                           Center(
+  //                             child: Text(
+  //                               '・その他利用規約に違反する画像',
+  //                               style: TextStyle(
+  //                                   decoration: TextDecoration.none,
+  //                                   color: textColorDefault,
+  //                                   fontSize: 14,
+  //                                   fontWeight: FontWeight.w400,
+  //                                   fontFamily: 'Noto Sans JP'),
+  //                             ),
+  //                           ),
+  //                           SizedBox(
+  //                             width: sWidth,
+  //                             height: sWidth * 24 / 375,
+  //                           ),
+  //                           ButtonWithText(
+  //                             bWidth: sWidth * 343 / 375,
+  //                             bHeight: sWidth * 46 / 375,
+  //                             fTap: () {},
+  //                             bText: 'ライブラリから選ぶ',
+  //                             bColor: appColor,
+  //                             tSize: 17,
+  //                             fWeight: FontWeight.w600,
+  //                             fFmamily: 'SF Pro Text',
+  //                             tColor: bgColor,
+  //                           ),
+  //                           SizedBox(
+  //                             width: sWidth,
+  //                             height: sWidth * 16 / 375,
+  //                           ),
+  //                           ButtonWithText(
+  //                             bWidth: sWidth * 343 / 375,
+  //                             bHeight: sWidth * 46 / 375,
+  //                             fTap: () {},
+  //                             bText: '写真を撮る',
+  //                             bColor: appColor,
+  //                             tSize: 17,
+  //                             fWeight: FontWeight.w600,
+  //                             fFmamily: 'SF Pro Text',
+  //                             tColor: bgColor,
+  //                           ),
+  //                         ],
+  //                       ),
+  //                     );
+  //                   });
+  //             },
+  //             child:
+  //                 camera(cWidth: sWidth * 42 / 375, cHeight: sWidth * 42 / 375),
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget rowAddPicture({required double rWidth}) {
     return SizedBox(
