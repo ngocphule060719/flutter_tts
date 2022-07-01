@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tts/screen/user_registration/avatar/avatar_bloc.dart';
+import 'package:flutter_tts/screen/user_registration/avatar/avatar_event.dart';
+import 'package:flutter_tts/screen/user_registration/avatar/avatar_state.dart';
 import 'package:flutter_tts/widget/button_text.dart';
 import 'package:flutter_tts/widget/drop_down_text_feild.dart';
 import 'package:flutter_tts/widget/text_field.dart';
@@ -24,7 +28,10 @@ class UserRegistration extends StatelessWidget {
   Widget build(BuildContext context) {
     //final _formKey = GlobalKey<FormState>();
 
-    final double swidth = MediaQuery.of(context).size.width;
+    final double swidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     //final double sheight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -50,130 +57,125 @@ class UserRegistration extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            TheAvatarProfile(sWidth: swidth,),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            rowAddPicture(rWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 32 / 375,
-            ),
-            firstText(tWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 16 / 375,
-            ),
-            textFieldName(tWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            textFieldNickName(tWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            dropDownSex(dHeight: swidth * 65 / 375, dWidth: swidth * 327 / 375),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            dropDownProfession(
-                dWidth: swidth * 327 / 375, dHeight: swidth * 65 / 375),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            dropDownBirthplace(
-                dWidth: swidth * 327 / 375, dHeight: swidth * 65 / 375),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            textFieldIntroduction(tWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 8 / 375,
-            ),
-            textBottom(tWidth: swidth * 327 / 375, tHeight: swidth * 58 / 375),
-            SizedBox(
-              width: swidth,
-              height: swidth * 48 / 375,
-            ),
-            choiceText(tWidth: swidth, inText: 'よく出かける沿線'),
-            SizedBox(
-              width: swidth,
-              height: swidth * 16 / 375,
-            ),
-            iconImagetext(
-                cWidth: swidth, img: Image.asset('images/osaka_metro.png')),
-            SizedBox(
-              width: swidth,
-              height: swidth * 16 / 375,
-            ),
-            iconImagetext(
-                cWidth: swidth, img: Image.asset('images/osaka_metro.png')),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            buttonPlus(bWidth: swidth, bText: ' 沿線を追加する'),
-            SizedBox(
-              width: swidth,
-              height: swidth * 40 / 375,
-            ),
-            choiceText(tWidth: swidth, inText: 'よく出かけるエリア'),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            buttonPlus(bWidth: swidth, bText: ' エリアを追加する'),
-            SizedBox(
-              width: swidth,
-              height: swidth * 40 / 375,
-            ),
-            choiceText(tWidth: swidth, inText: 'お気に入りの店舗'),
-            SizedBox(
-              width: swidth,
-              height: swidth * 16 / 375,
-            ),
-            iconImagetext(
-                cWidth: swidth, img: Image.asset('images/restaurant.png')),
-            SizedBox(
-              width: swidth,
-              height: swidth * 24 / 375,
-            ),
-            buttonPlus(bWidth: swidth, bText: ' 店舗を追加する'),
-            SizedBox(
-              width: swidth,
-              height: swidth * 55 / 375,
-            ),
-            textBeforeCheckBox(tWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 13 / 375,
-            ),
-            checkBoxAndText(cWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 15 / 375,
-            ),
-            bottomButton(bWidth: swidth),
-            SizedBox(
-              width: swidth,
-              height: swidth * 30 / 375,
-            ),
-          ],
+      body: BlocProvider<AvatarBloc>(
+        create: (context) => AvatarBloc(),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              TheAvatarProfile(
+                sWidth: swidth,
+              ),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              rowAddPicture(rWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 32 / 375,
+              ),
+              firstText(tWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 16 / 375,
+              ),
+              textFieldName(tWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              textFieldNickName(tWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              dropDownSex(
+                  dHeight: swidth * 65 / 375, dWidth: swidth * 327 / 375),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              dropDownProfession(
+                  dWidth: swidth * 327 / 375, dHeight: swidth * 65 / 375),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              dropDownBirthplace(
+                  dWidth: swidth * 327 / 375, dHeight: swidth * 65 / 375),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              textFieldIntroduction(tWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 8 / 375,
+              ),
+              textBottom(
+                  tWidth: swidth * 327 / 375, tHeight: swidth * 58 / 375),
+              SizedBox(
+                width: swidth,
+                height: swidth * 48 / 375,
+              ),
+              choiceText(tWidth: swidth, inText: 'よく出かける沿線'),
+              iconImagetext(
+                  cWidth: swidth, img: Image.asset('images/osaka_metro.png')),
+              iconImagetext(
+                  cWidth: swidth, img: Image.asset('images/osaka_metro.png')),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              buttonPlus(bWidth: swidth, bText: ' 沿線を追加する'),
+              SizedBox(
+                width: swidth,
+                height: swidth * 40 / 375,
+              ),
+              choiceText(tWidth: swidth, inText: 'よく出かけるエリア'),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              buttonPlus(bWidth: swidth, bText: ' エリアを追加する'),
+              SizedBox(
+                width: swidth,
+                height: swidth * 40 / 375,
+              ),
+              choiceText(tWidth: swidth, inText: 'お気に入りの店舗'),
+              iconImagetext(
+                  cWidth: swidth, img: Image.asset('images/restaurant.png')),
+              SizedBox(
+                width: swidth,
+                height: swidth * 24 / 375,
+              ),
+              buttonPlus(bWidth: swidth, bText: ' 店舗を追加する'),
+              SizedBox(
+                width: swidth,
+                height: swidth * 55 / 375,
+              ),
+              textBeforeCheckBox(tWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 13 / 375,
+              ),
+              checkBoxAndText(cWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 15 / 375,
+              ),
+              bottomButton(bWidth: swidth),
+              SizedBox(
+                width: swidth,
+                height: swidth * 30 / 375,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -326,10 +328,9 @@ class UserRegistration extends StatelessWidget {
     );
   }
 
-  Widget btnAddPicture(
-      {required double bWidth,
-      required double bHeight,
-      required Function addFunction}) {
+  Widget btnAddPicture({required double bWidth,
+    required double bHeight,
+    required Function addFunction}) {
     return Container(
       width: bWidth,
       height: bHeight,
@@ -369,9 +370,10 @@ class UserRegistration extends StatelessWidget {
   }
 
   Widget iconImagetext({required double cWidth, required Image img}) {
-    return SizedBox(
+    return Container(
       width: cWidth * 343 / 375,
-      height: cWidth * 64 / 375,
+      height: cWidth * 80 / 375,
+      padding: EdgeInsets.only(top: cWidth * 8 / 375, bottom: cWidth * 8 / 375),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -426,120 +428,6 @@ class UserRegistration extends StatelessWidget {
       ),
     );
   }
-
-  // Widget avatarProfile(
-  //     {required double sWidth, required BuildContext context}) {
-  //   return SizedBox(
-  //     width: sWidth * 160 / 375,
-  //     height: sWidth * 160 / 375,
-  //     child: Stack(
-  //       children: <Widget>[
-  //         Align(
-  //           alignment: Alignment.center,
-  //           child:
-  //               avatar(aWidth: sWidth * 160 / 375, aHeight: sWidth * 160 / 375),
-  //         ),
-  //         Align(
-  //           alignment: Alignment.bottomRight,
-  //           child: GestureDetector(
-  //             onTap: () {
-  //               // popup
-  //               showCupertinoModalBottomSheet<void>(
-  //                   context: context,
-  //                   builder: (BuildContext context) {
-  //                     return Container(
-  //                       decoration: const BoxDecoration(
-  //                         color: Colors.white,
-  //                         borderRadius: BorderRadius.only(
-  //                           topLeft: Radius.circular(16.0),
-  //                           topRight: Radius.circular(16.0),
-  //                         ),
-  //                       ),
-  //                       height: sWidth * 261 / 375,
-  //                       width: sWidth,
-  //                       child: Column(
-  //                         crossAxisAlignment: CrossAxisAlignment.center,
-  //                         children: <Widget>[
-  //                           SizedBox(
-  //                             width: sWidth,
-  //                             height: sWidth * 24 / 375,
-  //                           ),
-  //                           Center(
-  //                             child: Text(
-  //                               '【注意】以下の写真は登録できません',
-  //                               style: TextStyle(
-  //                                   decoration: TextDecoration.none,
-  //                                   color: textColorDefault,
-  //                                   fontSize: 14,
-  //                                   fontWeight: FontWeight.w600,
-  //                                   fontFamily: 'Noto Sans JP'),
-  //                             ),
-  //                           ),
-  //                           Center(
-  //                             child: Text(
-  //                               '・肖像権、著作権を侵害する画像',
-  //                               style: TextStyle(
-  //                                   decoration: TextDecoration.none,
-  //                                   color: textColorDefault,
-  //                                   fontSize: 14,
-  //                                   fontWeight: FontWeight.w400,
-  //                                   fontFamily: 'Noto Sans JP'),
-  //                             ),
-  //                           ),
-  //                           Center(
-  //                             child: Text(
-  //                               '・その他利用規約に違反する画像',
-  //                               style: TextStyle(
-  //                                   decoration: TextDecoration.none,
-  //                                   color: textColorDefault,
-  //                                   fontSize: 14,
-  //                                   fontWeight: FontWeight.w400,
-  //                                   fontFamily: 'Noto Sans JP'),
-  //                             ),
-  //                           ),
-  //                           SizedBox(
-  //                             width: sWidth,
-  //                             height: sWidth * 24 / 375,
-  //                           ),
-  //                           ButtonWithText(
-  //                             bWidth: sWidth * 343 / 375,
-  //                             bHeight: sWidth * 46 / 375,
-  //                             fTap: () {},
-  //                             bText: 'ライブラリから選ぶ',
-  //                             bColor: appColor,
-  //                             tSize: 17,
-  //                             fWeight: FontWeight.w600,
-  //                             fFmamily: 'SF Pro Text',
-  //                             tColor: bgColor,
-  //                           ),
-  //                           SizedBox(
-  //                             width: sWidth,
-  //                             height: sWidth * 16 / 375,
-  //                           ),
-  //                           ButtonWithText(
-  //                             bWidth: sWidth * 343 / 375,
-  //                             bHeight: sWidth * 46 / 375,
-  //                             fTap: () {},
-  //                             bText: '写真を撮る',
-  //                             bColor: appColor,
-  //                             tSize: 17,
-  //                             fWeight: FontWeight.w600,
-  //                             fFmamily: 'SF Pro Text',
-  //                             tColor: bgColor,
-  //                           ),
-  //                         ],
-  //                       ),
-  //                     );
-  //                   });
-  //             },
-  //             child:
-  //                 camera(cWidth: sWidth * 42 / 375, cHeight: sWidth * 42 / 375),
-  //           ),
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
 
   Widget rowAddPicture({required double rWidth}) {
     return SizedBox(
@@ -887,40 +775,56 @@ class TheAvatarProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     const Color btnBgColor = Color.fromRGBO(232, 233, 243, 1);
     const Color camBgColor = Color.fromRGBO(42, 60, 68, 1);
-    return Container(
+    return SizedBox(
       width: sWidth * 160 / 375,
       height: sWidth * 160 / 375,
-      child: GestureDetector(
-        onTap: () {},
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: sWidth * 160 / 375,
-                height: sWidth * 160 / 375,
-                decoration: const BoxDecoration(
-                    color: btnBgColor, shape: BoxShape.circle),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: SizedBox(
-                    width: sWidth * 48 / 160,
-                    height: sWidth * 48 / 160,
-                    child: Image.asset('images/icon_person.png'),
-                  ),
-                ),
-              ),
+      child: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.center,
+            child: BlocBuilder<AvatarBloc, AvatarState>(
+              builder: (context, state) {
+                if (state is UpdateSuccess) {
+                  return Container(
+                    width: sWidth * 160 / 375,
+                    height: sWidth * 160 / 375,
+                    decoration: BoxDecoration(
+                        color: btnBgColor, shape: BoxShape.circle,
+                        image: DecorationImage(image: FileImage(state.image!), fit: BoxFit.fill)),
+                  );
+                } else {
+                  return Container(
+                    width: sWidth * 160 / 375,
+                    height: sWidth * 160 / 375,
+                    decoration: BoxDecoration(color: btnBgColor, shape: BoxShape.circle),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        width: sWidth * 48 / 160,
+                        height: sWidth * 48 / 160,
+                        child: Image.asset('images/icon_person.png'),
+                      ),
+                    ),
+                  );
+                }
+              },
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Container(
-                alignment: Alignment.center,
-                width: sWidth * 42 / 375,
-                height: sWidth * 42 / 375,
-                decoration: const BoxDecoration(
-                  color: camBgColor,
-                  shape: BoxShape.circle,
-                ),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Container(
+              alignment: Alignment.center,
+              width: sWidth * 42 / 375,
+              height: sWidth * 42 / 375,
+              decoration: const BoxDecoration(
+                color: camBgColor,
+                shape: BoxShape.circle,
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  print('choose image');
+                  return context.read<AvatarBloc>().add(ImageGallery());
+                },
                 child: SizedBox(
                   width: sWidth * 19.14 / 42,
                   height: sWidth * 16.12 / 42,
@@ -931,8 +835,8 @@ class TheAvatarProfile extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
