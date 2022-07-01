@@ -291,43 +291,7 @@ class UserRegistration extends StatelessWidget {
       ),
     );
   }
-
-  Widget avatar({required double aWidth, required double aHeight}) {
-    return Container(
-      width: aWidth,
-      height: aHeight,
-      decoration: BoxDecoration(color: btnBgColor, shape: BoxShape.circle),
-      child: Align(
-        alignment: Alignment.center,
-        child: SizedBox(
-          width: aWidth * 48 / 160,
-          height: aWidth * 48 / 160,
-          child: Image.asset('images/icon_person.png'),
-        ),
-      ),
-    );
-  }
-
-  Widget camera({required double cWidth, required double cHeight}) {
-    return Container(
-      alignment: Alignment.center,
-      width: cWidth,
-      height: cHeight,
-      decoration: BoxDecoration(
-        color: camBgColor,
-        shape: BoxShape.circle,
-      ),
-      child: SizedBox(
-        width: cWidth * 19.14 / 42,
-        height: cHeight * 16.12 / 42,
-        child: Align(
-          alignment: Alignment.center,
-          child: Image.asset('images/icon_camera.png'),
-        ),
-      ),
-    );
-  }
-
+  
   Widget btnAddPicture({required double bWidth,
     required double bHeight,
     required Function addFunction}) {
