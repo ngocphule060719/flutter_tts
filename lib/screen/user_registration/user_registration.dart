@@ -58,7 +58,7 @@ class UserRegistration extends StatelessWidget {
               width: swidth,
               height: swidth * 24 / 375,
             ),
-            avatarProfile(sWidth: swidth, context: context),
+            TheAvatarProfile(sWidth: swidth,),
             SizedBox(
               width: swidth,
               height: swidth * 24 / 375,
@@ -172,7 +172,7 @@ class UserRegistration extends StatelessWidget {
             SizedBox(
               width: swidth,
               height: swidth * 30 / 375,
-            )
+            ),
           ],
         ),
       ),
@@ -419,7 +419,7 @@ class UserRegistration extends StatelessWidget {
               onTap: () {
                 //change position
               },
-              child: Icon(Icons.menu),
+              child: const Icon(Icons.menu),
             ),
           )
         ],
@@ -870,6 +870,68 @@ class UserRegistration extends StatelessWidget {
             fontFamily: 'Noto Sans JP',
             fontWeight: FontWeight.w400,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class TheAvatarProfile extends StatelessWidget {
+  late double sWidth;
+
+  TheAvatarProfile({
+    required this.sWidth,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    const Color btnBgColor = Color.fromRGBO(232, 233, 243, 1);
+    const Color camBgColor = Color.fromRGBO(42, 60, 68, 1);
+    return Container(
+      width: sWidth * 160 / 375,
+      height: sWidth * 160 / 375,
+      child: GestureDetector(
+        onTap: () {},
+        child: Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                width: sWidth * 160 / 375,
+                height: sWidth * 160 / 375,
+                decoration: const BoxDecoration(
+                    color: btnBgColor, shape: BoxShape.circle),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    width: sWidth * 48 / 160,
+                    height: sWidth * 48 / 160,
+                    child: Image.asset('images/icon_person.png'),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                alignment: Alignment.center,
+                width: sWidth * 42 / 375,
+                height: sWidth * 42 / 375,
+                decoration: const BoxDecoration(
+                  color: camBgColor,
+                  shape: BoxShape.circle,
+                ),
+                child: SizedBox(
+                  width: sWidth * 19.14 / 42,
+                  height: sWidth * 16.12 / 42,
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Image.asset('images/icon_camera.png'),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
